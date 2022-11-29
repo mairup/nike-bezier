@@ -1,0 +1,52 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto Flex', sans-serif;
+}
+
+.main-header {
+    height: 50px;
+    background-color: rgb(200, 200, 200);
+    display: flex;
+    flex-flow: row;
+}
+
+#site-icon {
+    background-image: url('../img/logo.svg');
+    background-size: cover;
+    width: 50px;
+    height: 100%;
+    margin-left: 5px;
+}
+
+.main-header-left,
+.main-header-right {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.main-header-right {
+    width: 100%;
+    justify-content: right;
+}
+
+.header-button {
+    margin: 5px;
+    height: 65%;
+    display: grid;
+    place-items: center;
+    background-color: rgb(165, 165, 165);
+    padding: 0 10px;
+    border-radius: 50px;
+    border: 1px solid rgb(200, 200, 200);
+    cursor:pointer;
+    transition: background-color 0.3s ease, border-radius 0.3s ease;
+}
+
+.header-button:hover {
+    background-color: rgb(235, 235, 235);
+    border: 1px solid black;
+    box-sizing: border-box;
+
+}
