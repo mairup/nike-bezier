@@ -6,10 +6,11 @@ body {
 
 .main-header {
     height: 50px;
-    background-color: rgb(200, 200, 200);
+    background-color: rgb(230, 230, 230);
     display: flex;
     flex-flow: row;
 }
+
 
 #site-icon {
     background-image: url('../img/logo.svg');
@@ -32,21 +33,44 @@ body {
 }
 
 .header-button {
+    font-size: 15px;
+    font-weight: 500;
     margin: 5px;
     height: 65%;
     display: grid;
     place-items: center;
-    background-color: rgb(165, 165, 165);
+    background-color: rgb(200, 200, 200);
     padding: 0 10px;
     border-radius: 50px;
-    border: 1px solid rgb(200, 200, 200);
-    cursor:pointer;
+    border: 1px solid rgb(230, 230, 200);
+    cursor: pointer;
     transition: background-color 0.3s ease, border-radius 0.3s ease;
 }
 
 .header-button:hover {
-    background-color: rgb(235, 235, 235);
+    background-color: whitesmoke;
     border: 1px solid black;
     box-sizing: border-box;
 
+}
+
+@media screen and (max-width: 1080px) {
+    .main-header {
+        height: 150px;
+    }
+
+    #site-icon {
+        width: 150px;
+        margin-left: 10px;
+    }
+
+    .header-button {
+        font-size: 30px;
+        padding: 0 20px;
+        border: 2px solid rgb(230, 230, 200);
+    }
+
+    .header-button:hover {
+        border: 2px solid black;
+    }
 }
