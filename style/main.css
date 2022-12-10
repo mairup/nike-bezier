@@ -1,97 +1,113 @@
 body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Roboto Flex', sans-serif;
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto Flex", sans-serif;
+  background-color: rgb(64, 65, 65);
 }
 
 .main-header {
-    height: 50px;
-    background-color: rgb(230, 230, 230);
-    display: flex;
-    flex-flow: row;
-    width: 100%;
+  height: 50px;
+  background-color: rgb(228, 228, 228);
+  width: 100%;
+  display: flex;
+  flex-flow: row;
 }
 
-
 #site-icon {
-    background-image: url('../img/logo.svg');
-    background-size: cover;
-    width: 50px;
-    height: 100%;
-    margin-left: 10px;
+  background-image: url("../img/logo.svg");
+  background-size: cover;
+  width: 50px;
+  height: 100%;
+  margin-left: 10px;
+}
+
+.main-header-right-container {
+  width: 100%;
+  display: flex;
+  justify-content: right;
 }
 
 .main-header-left,
 .main-header-right {
-    height: 100%;
-    display: flex;
-    align-items: center;
+  height: 100%;
+  display: flex;
+  align-items: center;
 }
 
 .main-header-right {
-    width: 100%;
-    justify-content: right;
-    min-width: 430px;
+  display: flex;
+  flex-flow: row;
+  overflow-x: auto;
 }
 
 .header-button {
-    font-size: 15px;
-    font-weight: 500;
-    margin: 5px;
-    height: 65%;
-    display: grid;
-    place-items: center;
-    background-color: rgb(200, 200, 200);
-    padding: 0 10px;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, border-radius 0.3s ease;
-    box-sizing: border-box;
-    width: 170px;
-    min-width: 130px;
+  font-size: 15px;
+  font-weight: 500;
+  margin: 5px 10px;
+  height: 65%;
+  display: grid;
+  place-items: center;
+  background-color: rgb(200, 200, 200);
+  padding: 0 10px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, border-radius 0.3s ease;
+  box-sizing: border-box;
+  width: 170px;
+  min-width: 130px;
+  caret-color: rgba(0, 0, 0, 0);
+  user-select: none;
 }
 
 .header-button:hover {
-    background-color: whitesmoke;
-    border: 1px solid rgb(48, 48, 48);
+  background-color: whitesmoke;
+  border: 1px solid rgb(48, 48, 48);
 }
 
-.main-body{
-    display: flex;
-    flex-flow:column;
-    width: 100%;
-    align-items: center;
+.main-body {
+  display: flex;
+  flex-flow: column;
+  width: 100%;
+  align-items: center;
 }
-.main-body-container{
-    width: 80%;
-    height: 700px;
-    background-color: rgb(168, 168, 168);
-    display: flex;
-    flex-flow: row;
-    justify-content: center;
-    align-items: center;
+.main-body-container {
+  width: 80%;
+  height: 700px;
+  background-color: rgb(168, 168, 168);
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
 }
 
-.main-body-container-left, .main-body-container-right{
-    height: 100%;
-    width: 50%;
-    background-color: rgb(100, 100, 100);
-    box-shadow: inset 0 0 10px 5px rgb(0, 0, 0);
-    display: grid;
-    place-items: center;
+.main-body-container-left,
+.main-body-container-right {
+  height: 100%;
+  width: 50%;
+  background-color: rgb(100, 100, 100);
+  box-shadow: inset 0 0 10px 5px rgb(0, 0, 0);
+  display: grid;
+  place-items: center;
 }
 
 @media screen and (max-width: 510px) {
-
-    .main-header{
-        flex-flow: column;
-        height: 100px;
-    }
-    .main-header-left,
-    .main-header-right {
-        height: 50%;
-    }
-    .main-header-right{  
-        overflow-x: scroll;
-    }
+  .main-header {
+    flex-flow: column;
+    height: 100px;
+  }
+  .main-header-left,
+  .main-header-right-container {
+    height: 50%;
+  }
+  .main-header-left {
+    justify-content: center;
+  }
+  .main-header-right::-webkit-scrollbar {
+    display: none;
+  }
+  .main-header-right {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+    overflow-x: scroll;
+  }
 }
