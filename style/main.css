@@ -61,7 +61,7 @@ body {
 
 .header-button:hover {
   background-color: whitesmoke;
-  border: 1px solid rgb(48, 48, 48);
+  border: 1px solid rgb(175, 214, 0);
 }
 
 .main-body {
@@ -78,7 +78,7 @@ body {
   flex-flow: row;
   justify-content: center;
   align-items: center;
-  margin: 20px 0;
+  margin: 40px 0 0;
 }
 .main-body-container-display {
   width: 100%;
@@ -86,9 +86,7 @@ body {
   flex-flow: row;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
-  border-radius: 50px;
-  margin: 20px 0;
+  margin: 40px 0 0;
 }
 
 #main-body-display-img {
@@ -96,11 +94,30 @@ body {
   height: 100%;
   display: flex;
   justify-content: center;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50px;
 }
 
 #main-body-display-img img {
   width: 100%;
   border-radius: 50px;
+  position: relative;
+}
+
+.main-body-display-move{
+  height: 100%;
+  width: 10%;
+  background-color:rgba(102, 102, 102, 0.329);
+  position: absolute;
+}
+
+#main-body-display-left{
+  left: 0;
+}
+
+#main-body-display-right{
+  right: 0;
 }
 
 .main-body-container-left,
