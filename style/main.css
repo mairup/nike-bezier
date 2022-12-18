@@ -71,14 +71,15 @@ body {
   align-items: center;
 }
 .main-body-container {
-  width: 80%;
-  height: 700px;
+  width: 100%;
+  min-height: 900px;
   display: flex;
   flex-flow: row;
   justify-content: center;
   align-items: center;
   margin: 40px 0 0;
   max-width: 1000px;
+  background-color: rgb(63, 85, 104);
 }
 .main-body-container-display {
   width: 100%;
@@ -134,6 +135,10 @@ body {
   height: 100%;
 }
 
+.main-body-container-gallery img {
+  width: 100%;
+}
+
 .main-body-container-gallery-row {
   width: 100%;
   height: 47.5%;
@@ -149,8 +154,11 @@ body {
 
 .main-body-container-gallery-item {
   height: 100%;
-  background-color: rgb(15, 15, 14);
+  background-color: #f6f6f6;
   border-radius: 20px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
 }
 
 .main-body-container-gallery-tl {
@@ -159,6 +167,7 @@ body {
 
 .main-body-container-gallery-tr {
   width: 65%;
+  height: 100%;
 }
 
 .main-body-container-gallery-bl {
@@ -169,7 +178,24 @@ body {
   width: 35%;
 }
 
-@media screen and (max-width: 510px) {
+@media screen and (max-width: 1000px) {
+  /* gallery items should have 90% width and be below each other */
+  .main-body-container-gallery {
+    width: 90%;
+  }
+  .main-body-container-gallery-row {
+    flex-flow: column;
+  }
+  .main-body-container-gallery-item {
+    width: 100%;
+  }
+  .main-body-container-gallery-bl,
+  .main-body-container-gallery-tl {
+    margin-bottom: 5%;
+  }
+}
+
+@media screen and (max-width: 630px) {
   .main-header {
     flex-flow: column;
     height: 100px;
