@@ -79,7 +79,6 @@ body {
   align-items: center;
   margin: 40px 0 0;
   max-width: 1000px;
-  background-color: rgb(63, 85, 104);
 }
 .main-body-container-display {
   width: 100%;
@@ -98,12 +97,12 @@ body {
   justify-content: center;
   position: relative;
   overflow: hidden;
-  border-radius: 50px;
+  border-radius: 30px;
 }
 
 #main-body-display-img img {
   width: 100%;
-  border-radius: 50px;
+  border-radius: 30px;
   position: relative;
 }
 
@@ -155,7 +154,7 @@ body {
 .main-body-container-gallery-item {
   height: 100%;
   background-color: #f6f6f6;
-  border-radius: 20px;
+  border-radius: 30px;
   display: grid;
   place-items: center;
   overflow: hidden;
@@ -181,7 +180,8 @@ body {
 @media screen and (max-width: 1000px) {
   /* gallery items should have 90% width and be below each other */
   .main-body-container-gallery {
-    width: 90%;
+    width: 80%;
+    max-width: 600px;
   }
   .main-body-container-gallery-row {
     flex-flow: column;
@@ -214,5 +214,24 @@ body {
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
     overflow-x: scroll;
+  }
+}
+@media screen and (max-width: 450px) {
+  .main-body-container-gallery {
+    width: 95%;
+  }
+  .main-body-container-gallery-item {
+    border-radius: 20px;
+  }
+  #main-body-display-img,
+  #main-body-display-img img {
+    border-radius: 20px;
+  }
+  #main-body-display-img {
+    width: 95%;
+  }
+  .main-body-container-display,
+  .main-body-container {
+    margin: 10px 0;
   }
 }
