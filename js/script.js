@@ -51,6 +51,6 @@ function drawShape(ctx, xoff, yoff) {
     329 + xoff,
     296 + yoff
   );
-  ctx.fillStyle = "#afd600";
+  ctx.fillStyle = "#fcaa26";
   ctx.fill();
 }

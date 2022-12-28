@@ -2,7 +2,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Roboto Flex", sans-serif;
-  background-color: rgb(64, 65, 65);
+  background-color: rgb(78, 78, 78);
 }
 
 .main-header {
@@ -188,6 +188,13 @@ body {
   font-weight: 500;
 }
 
+.main-body-container-right-text {
+  color: rgb(228, 228, 228);
+  padding: 0 10% 0 30%;
+  font-size: 22px;
+  font-weight: 500;
+}
+
 .main-body-container-right-imgcon {
   width: 480px;
   background-color: #f6f6f6;
@@ -212,16 +219,16 @@ body {
 
 .half-width-img-overlay-svg {
   position: absolute;
-  width: 38%;
-  top: 43.75%;
-  left: 48.5%;
+  width: 38.8%;
+  top: 43.62%;
+  left: 48.4%;
   opacity: 70%;
 }
 
 .half-width-img-overlay-canvas {
   margin: 20% 5%;
   position: absolute;
-  opacity: 70%;
+  opacity: 75%;
   transform: scale(83%);
 }
 
