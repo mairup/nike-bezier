@@ -84,6 +84,11 @@
           <div class="main-body-container-right">
             <div class="main-body-container-right-imgcon">
               <img class="half-width-img" src="img/nike-shoe.png" alt="image" />
+              <img
+                class="half-width-img-overlay"
+                src="img/nike-overlay.png"
+                alt="overlay"
+              />
             </div>
           </div>
         </div>
@@ -93,6 +98,11 @@
           <div class="main-body-container-right">
             <div class="main-body-container-right-imgcon">
               <img class="half-width-img" src="img/nike-shoe.png" alt="image" />
+              <img
+                class="half-width-img-overlay-svg"
+                src="img/nike-overlay.svg"
+                alt="overlay"
+              />
             </div>
           </div>
           <div class="main-body-container-left">
@@ -120,11 +130,21 @@
           </div>
           <div class="main-body-container-right">
             <div class="main-body-container-right-imgcon">
-              <img class="half-width-img" src="img/nike-shoe.png" alt="image" />
+              <img
+                id="half-width-img-bezier"
+                class="half-width-img"
+                src="img/nike-shoe.png"
+                alt="image"
+              />
+              <canvas
+                id="canvas"
+                class="half-width-img-overlay-canvas"
+              ></canvas>
             </div>
           </div>
         </div>
       </div>
     </div>
+    <script src="js/script.js"></script>
   </body>
 </html>
