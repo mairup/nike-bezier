@@ -5,52 +5,98 @@ window.addEventListener("load", () => {
   canvas.height = document.getElementById("half-width-img-bezier").height;
   canvas.width = document.getElementById("half-width-img-bezier").width;
 
-  drawShape(ctx, -(canvas.width * 0.197), -(canvas.height * 0.961));
+  drawShape(ctx, -78, -223);
 });
 
 function drawShape(ctx, xoff, yoff) {
   ctx.beginPath();
-  ctx.moveTo(328 + xoff, 297 + yoff);
+  ctx.moveTo(318 + xoff, 308 + yoff);
+  ctx.bezierCurveTo(
+    305 + xoff,
+    313 + yoff,
+    278 + xoff,
+    327 + yoff,
+    289 + xoff,
+    352 + yoff
+  );
+  ctx.bezierCurveTo(
+    295 + xoff,
+    365 + yoff,
+    316 + xoff,
+    365 + yoff,
+    332 + xoff,
+    362 + yoff
+  );
+  ctx.bezierCurveTo(
+    361 + xoff,
+    357 + yoff,
+    382 + xoff,
+    353 + yoff,
+    413 + xoff,
+    343 + yoff
+  );
+  ctx.bezierCurveTo(
+    446 + xoff,
+    332 + yoff,
+    446 + xoff,
+    331 + yoff,
+    452 + xoff,
+    328 + yoff
+  );
+  ctx.bezierCurveTo(
+    461 + xoff,
+    324 + yoff,
+    477 + xoff,
+    321 + yoff,
+    462 + xoff,
+    317 + yoff
+  );
+  ctx.bezierCurveTo(
+    448 + xoff,
+    313 + yoff,
+    449 + xoff,
+    318 + yoff,
+    420 + xoff,
+    326 + yoff
+  );
+  ctx.bezierCurveTo(
+    394 + xoff,
+    333 + yoff,
+    349 + xoff,
+    341 + yoff,
+    333 + xoff,
+    339 + yoff
+  );
   ctx.bezierCurveTo(
     313 + xoff,
-    300 + yoff,
-    270 + xoff,
-    331 + yoff,
-    302 + xoff,
-    356 + yoff
+    336 + yoff,
+    317 + xoff,
+    321 + yoff,
+    318 + xoff,
+    312 + yoff
   );
-  ctx.bezierCurveTo(
-    315 + xoff,
-    366 + yoff,
-    361 + xoff,
-    358 + yoff,
-    394 + xoff,
-    351 + yoff
-  );
-  ctx.bezierCurveTo(
-    410 + xoff,
-    348 + yoff,
-    548 + xoff,
-    306 + yoff,
-    502 + xoff,
-    305 + yoff
-  );
-  ctx.bezierCurveTo(
-    470 + xoff,
-    304 + yoff,
-    460 + xoff,
-    320 + yoff,
-    407 + xoff,
-    327 + yoff
-  );
-  ctx.bezierCurveTo(
-    361 + xoff,
-    333 + yoff,
-    319 + xoff,
-    347 + yoff,
-    329 + xoff,
-    296 + yoff
-  );
-  ctx.fillStyle = "#fcaa26";
+  ctx.fillStyle = "rgba(252, 170, 38, 0.7)";
   ctx.fill();
+}
+
+window.addEventListener("resize", () => {
+  console.log(window.innerWidth);
+  if (window.innerWidth <= 1000) swapHalfWidthImgLeft();
+  else swapHalfWidthImgRight();
+});
+
+function swapHalfWidthImgLeft() {
+  let tmp = document
+    .getElementById("main-body-container-side-svg-img")
+    .cloneNode(true);
+  document.getElementById("main-body-container-side-svg-img").remove();
+  document.getElementById("main-body-sides-container").append(tmp);
+}
+
+function swapHalfWidthImgRight() {
+  let tmp = document
+    .getElementById("main-body-container-side-svg-text")
+    .cloneNode(true);
+  document.getElementById("main-body-container-side-svg-text").remove();
+  document.getElementById("main-body-sides-container").append(tmp);
 }
