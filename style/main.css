@@ -130,6 +130,27 @@ body {
   width: 480px;
   min-width: 480px;
 }
+.main-body-display-img-overlay {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+#main-body-display-img-overlay-png {
+  background: url("../img/nike-overlay.png");
+  background-size: contain;
+  opacity: 0%;
+}
+
+.main-overlay-canvas {
+  position: absolute;
+  background-image: url("../img/nike-shoe-orange.png");
+  background-size: contain;
+  display: flex;
+  align-self: center;
+  transform: scale(223%);
+  opacity: 0%;
+}
 
 .main-body-container-gallery {
   width: 80%;
@@ -225,7 +246,7 @@ body {
 .half-width-img-overlay-svg {
   position: absolute;
   width: 38.8%;
-  top: 43.62%;
+  top: 43.5%;
   left: 48.4%;
   opacity: 70%;
 }
@@ -233,7 +254,6 @@ body {
 .half-width-img-overlay-canvas {
   margin: 20% 5%;
   position: absolute;
-  opacity: 100%;
   background-image: url("../img/nike-shoe-orange.png");
   background-size: contain;
 }

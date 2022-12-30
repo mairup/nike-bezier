@@ -1,11 +1,18 @@
 window.addEventListener("load", () => {
-  const canvas = document.querySelector("canvas");
+  const canvas = document.getElementById("canvas");
   const ctx = canvas.getContext("2d");
+
+  const mainCanvas = document.getElementById("canvas-main");
+  const mainCtx = mainCanvas.getContext("2d");
 
   canvas.height = document.getElementById("half-width-img-bezier").height;
   canvas.width = document.getElementById("half-width-img-bezier").width;
 
+  mainCanvas.height = canvas.height;
+  mainCanvas.width = canvas.width;
+
   drawShape(ctx, -78, -223);
+  drawShape(mainCtx, -78, -223);
 });
 
 function drawShape(ctx, xoff, yoff) {
