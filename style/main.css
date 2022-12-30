@@ -149,7 +149,7 @@ body {
   display: flex;
   align-self: center;
   transform: scale(223%);
-  opacity: 0%;
+  opacity: 50%;
 }
 
 .main-body-container-gallery {

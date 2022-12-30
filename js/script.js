@@ -13,6 +13,7 @@ window.addEventListener("load", () => {
 
   drawShape(ctx, -78, -223);
   drawShape(mainCtx, -78, -223);
+  resizeMainCanvas();
 });
 
 function drawShape(ctx, xoff, yoff) {
@@ -87,9 +88,9 @@ function drawShape(ctx, xoff, yoff) {
 }
 
 window.addEventListener("resize", () => {
-  console.log(window.innerWidth);
   if (window.innerWidth <= 1000) swapHalfWidthImgLeft();
   else swapHalfWidthImgRight();
+  resizeMainCanvas();
 });
 
 function swapHalfWidthImgLeft() {
@@ -106,4 +107,13 @@ function swapHalfWidthImgRight() {
     .cloneNode(true);
   document.getElementById("main-body-container-side-svg-text").remove();
   document.getElementById("main-body-sides-container").append(tmp);
+}
+
+function resizeMainCanvas() {
+  let scale =
+    document.getElementById("main-body-display-img").offsetWidth / 4.3;
+  scale = Math.floor(scale);
+  console.log("scale(" + scale + "%)");
+  document.getElementById("canvas-main").style.transform =
+    "scale(" + scale + "%)";
 }
