@@ -123,12 +123,11 @@ body {
 .main-body-container-left,
 .main-body-container-right {
   height: 100%;
-  width: 50%;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 480px;
-  min-width: 480px;
+  max-width: 480px;
 }
 .main-body-display-img-overlay {
   position: absolute;
@@ -203,6 +202,7 @@ body {
 
 .main-body-container-box {
   width: 80%;
+  margin: 0;
 }
 
 .main-body-container-left-text {
@@ -226,6 +226,8 @@ body {
   position: relative;
   display: flex;
   align-self: center;
+  justify-content: center;
+  align-items: center;
 }
 
 .half-width-img {
@@ -233,7 +235,6 @@ body {
   position: relative;
   width: 90%;
   margin: 20% 5%;
-  min-width: 430px;
 }
 
 .half-width-img-overlay {
@@ -252,7 +253,6 @@ body {
 }
 
 .half-width-img-overlay-canvas {
-  margin: 20% 5%;
   position: absolute;
   background-image: url("../img/nike-shoe-orange.png");
   background-size: contain;
@@ -265,12 +265,12 @@ body {
   .main-body-container-gallery-row {
     flex-flow: column;
     margin: 0;
-  }
-  .main-body-container-gallery-item {
-    width: 100%;
+    align-items: center;
   }
   .main-body-container-gallery-item {
     margin-bottom: 5%;
+    max-width: 480px;
+    width: 100%;
   }
   .main-body-container-gallery img {
     height: auto;
@@ -282,7 +282,7 @@ body {
   }
   .main-body-container-left-text,
   .main-body-container-right-text {
-    padding: 0 0 60px;
+    padding: 0 10% 60px;
   }
 }
 
@@ -306,13 +306,12 @@ body {
     scrollbar-width: none; /* Firefox */
     overflow-x: scroll;
   }
-}
-
-@media screen and (max-width: 480px) {
-  .main-body-container-right-imgcon {
-    border-radius: 0;
+  .main-body-container-right-text,
+  .main-body-container-left-text {
+    font-size: 18px;
   }
 }
+
 @media screen and (max-width: 450px) {
   /* TODO - make the half width divs smaller for this res */
   .main-body-container-gallery {
@@ -331,5 +330,18 @@ body {
   .main-body-container-display,
   .main-body-container {
     margin: 10px 0;
+  }
+  .main-body-container-right-imgcon {
+    border-radius: 20px;
+  }
+  .main-body-container-box {
+    width: 95%;
+  }
+  .main-body-container-right {
+    width: 100%;
+  }
+  .main-body-container-right-text,
+  .main-body-container-left-text {
+    font-size: 13px;
   }
 }

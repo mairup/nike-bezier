@@ -113,7 +113,10 @@ function resizeMainCanvas() {
   let scale =
     document.getElementById("main-body-display-img").offsetWidth / 4.3;
   scale = Math.floor(scale);
-  console.log("scale(" + scale + "%)");
   document.getElementById("canvas-main").style.transform =
     "scale(" + scale + "%)";
+  let scale2 =
+    document.getElementById("half-width-img-bezier").offsetWidth / 4.3;
+  scale2 = Math.floor(scale2);
+  document.getElementById("canvas").style.transform = "scale(" + scale2 + "%)";
 }
