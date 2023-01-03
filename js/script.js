@@ -126,7 +126,7 @@ function resizeMainCanvas() {
 
 function setPNG() {
   document.getElementById("main-body-display-img-background").src =
-    "../img/nike-shoe-yello.png";
+    "img/nike-shoe-yello.png";
   document.getElementById("main-body-display-img-overlay-png").style.opacity =
     "70%";
   document.getElementById(
