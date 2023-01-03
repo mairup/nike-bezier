@@ -147,7 +147,7 @@ function setPNG() {
 
 function setSVG() {
   document.getElementById("main-body-display-img-background").src =
-    "../img/nike-shoe-blue.png";
+    "img/nike-shoe-blue.png";
   document.getElementById(
     "main-body-display-img-overlay-png"
   ).style.opacity = 0;
@@ -168,7 +168,7 @@ function setSVG() {
 
 function setBezier() {
   document.getElementById("main-body-display-img-background").src =
-    "../img/nike-shoe-green.png";
+    "img/nike-shoe-green.png";
   document.getElementById(
     "main-body-display-img-overlay-png"
   ).style.opacity = 0;
