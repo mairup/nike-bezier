@@ -1,18 +1,6 @@
 window.addEventListener("load", () => {
-  const canvas = document.getElementById("canvas");
-  const ctx = canvas.getContext("2d");
-
-  const mainCanvas = document.getElementById("canvas-main");
-  const mainCtx = mainCanvas.getContext("2d");
-
-  canvas.height = document.getElementById("half-width-img-bezier").height;
-  canvas.width = document.getElementById("half-width-img-bezier").width;
-
-  mainCanvas.height = canvas.height;
-  mainCanvas.width = canvas.width;
-
-  drawShape(ctx, -78, -223);
-  drawShape(mainCtx, -78, -223);
+  if (window.innerWidth <= 1000) swapHalfWidthImgLeft();
+  else swapHalfWidthImgRight();
   resizeMainCanvas();
 });
 
@@ -110,6 +98,21 @@ function swapHalfWidthImgRight() {
 }
 
 function resizeMainCanvas() {
+  const canvas = document.getElementById("canvas");
+  const ctx = canvas.getContext("2d");
+
+  const mainCanvas = document.getElementById("canvas-main");
+  const mainCtx = mainCanvas.getContext("2d");
+
+  canvas.height = 224;
+  canvas.width = 432;
+
+  mainCanvas.height = canvas.height;
+  mainCanvas.width = canvas.width;
+
+  drawShape(ctx, -78, -223);
+  drawShape(mainCtx, -78, -223);
+
   let scale =
     document.getElementById("main-body-display-img").offsetWidth / 4.3;
   scale = Math.floor(scale);
@@ -119,4 +122,68 @@ function resizeMainCanvas() {
     document.getElementById("half-width-img-bezier").offsetWidth / 4.3;
   scale2 = Math.floor(scale2);
   document.getElementById("canvas").style.transform = "scale(" + scale2 + "%)";
+}
+
+function setPNG() {
+  document.getElementById("main-body-display-img-background").src =
+    "../img/nike-shoe-green.png";
+  document.getElementById("main-body-display-img-overlay-png").style.opacity =
+    "70%";
+  document.getElementById(
+    "main-body-display-img-overlay-svg"
+  ).style.opacity = 0;
+  document.getElementById("canvas-main").style.opacity = 0;
+
+  document
+    .getElementById("menu-set-png-button")
+    .classList.add("header-button-selected");
+  document
+    .getElementById("menu-set-svg-button")
+    .classList.remove("header-button-selected");
+  document
+    .getElementById("menu-set-bezier-button")
+    .classList.remove("header-button-selected");
+}
+
+function setSVG() {
+  document.getElementById("main-body-display-img-background").src =
+    "../img/nike-shoe-blue.png";
+  document.getElementById(
+    "main-body-display-img-overlay-png"
+  ).style.opacity = 0;
+  document.getElementById("main-body-display-img-overlay-svg").style.opacity =
+    "70%";
+  document.getElementById("canvas-main").style.opacity = 0;
+
+  document
+    .getElementById("menu-set-png-button")
+    .classList.remove("header-button-selected");
+  document
+    .getElementById("menu-set-svg-button")
+    .classList.add("header-button-selected");
+  document
+    .getElementById("menu-set-bezier-button")
+    .classList.remove("header-button-selected");
+}
+
+function setBezier() {
+  document.getElementById("main-body-display-img-background").src =
+    "../img/nike-shoe-green.png";
+  document.getElementById(
+    "main-body-display-img-overlay-png"
+  ).style.opacity = 0;
+  document.getElementById(
+    "main-body-display-img-overlay-svg"
+  ).style.opacity = 0;
+  document.getElementById("canvas-main").style.opacity = 100;
+
+  document
+    .getElementById("menu-set-png-button")
+    .classList.remove("header-button-selected");
+  document
+    .getElementById("menu-set-svg-button")
+    .classList.remove("header-button-selected");
+  document
+    .getElementById("menu-set-bezier-button")
+    .classList.add("header-button-selected");
 }

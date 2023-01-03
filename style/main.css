@@ -21,6 +21,10 @@ body {
   margin-left: 10px;
 }
 
+#site-icon:hover {
+  cursor: pointer;
+}
+
 .main-header-right-container {
   width: 100%;
   display: flex;
@@ -64,6 +68,11 @@ body {
   border: 1px solid #afd600;
 }
 
+.header-button-selected {
+  background-color: whitesmoke;
+  border: 1px solid #afd600;
+}
+
 .main-body {
   display: flex;
   flex-flow: column;
@@ -79,6 +88,13 @@ body {
   margin: 60px 0 0;
   max-width: 1200px;
 }
+
+.body-title {
+  margin: 60px 0 0;
+  color: rgb(228, 228, 228);
+  font-size: 50px;
+}
+
 .main-body-container-display {
   width: 100%;
   display: flex;
@@ -99,10 +115,18 @@ body {
   border-radius: 30px;
 }
 
+#main-body-display-img-background {
+  transition: all 0.5s;
+}
+
 #main-body-display-img img {
   width: 100%;
   border-radius: 30px;
   position: relative;
+}
+
+.main-body-display-img-overlay-transition {
+  transition: all 0.5s;
 }
 
 .main-body-display-move {
@@ -148,7 +172,7 @@ body {
   display: flex;
   align-self: center;
   transform: scale(223%);
-  opacity: 50%;
+  opacity: 0%;
 }
 
 .main-body-container-gallery {
@@ -313,7 +337,11 @@ body {
 }
 
 @media screen and (max-width: 450px) {
-  /* TODO - make the half width divs smaller for this res */
+  .body-title {
+    margin: 20px 0 10px;
+    font-size: 40px;
+    text-align: center;
+  }
   .main-body-container-gallery {
     width: 95%;
   }

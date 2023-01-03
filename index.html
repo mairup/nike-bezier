@@ -17,37 +17,58 @@
   <body>
     <div class="main-header">
       <div class="main-header-left">
-        <div id="site-icon"></div>
+        <div id="site-icon" onclick="location.reload()"></div>
       </div>
       <div class="main-header-right-container">
         <div class="main-header-right">
-          <div class="header-button" style="border-color: #02f52c">
+          <div
+            id="menu-set-png-button"
+            class="header-button"
+            style="border-color: #02f52c"
+            onclick="setPNG()"
+          >
             PNG version
           </div>
-          <div class="header-button" style="border-color: #00d79b">
+          <div
+            id="menu-set-svg-button"
+            class="header-button"
+            style="border-color: #00d79b"
+            onclick="setSVG()"
+          >
             SVG version
           </div>
-          <div class="header-button" style="border-color: #fcaa26">
+          <div
+            id="menu-set-bezier-button"
+            class="header-button"
+            style="border-color: #fcaa26"
+            onclick="setBezier()"
+          >
             Bezier version
           </div>
         </div>
       </div>
     </div>
     <div class="main-body">
+      <h1 class="body-title">Nike Air Force 1</h1>
       <div class="main-body-container-display">
         <div id="main-body-display-img">
-          <img src="img/nike-shoe.png" alt="display photo" />
-          <div id="main-body-display-left" class="main-body-display-move"></div>
+          <img
+            id="main-body-display-img-background"
+            src="img/nike-shoe.png"
+            alt="display photo"
+          />
+          <!--<div id="main-body-display-left" class="main-body-display-move"></div>
           <div
             id="main-body-display-right"
             class="main-body-display-move"
-          ></div>
+          ></div>-->
           <div
-            class="main-body-display-img-overlay"
+            class="main-body-display-img-overlay main-body-display-img-overlay-transition"
             id="main-body-display-img-overlay-png"
           ></div>
           <img
-            class="half-width-img-overlay-svg"
+            id="main-body-display-img-overlay-svg"
+            class="half-width-img-overlay-svg main-body-display-img-overlay-transition"
             style="
               position: absolute;
               width: 42.7%;
@@ -58,7 +79,10 @@
             src="img/nike-overlay.svg"
             alt="overlay"
           />
-          <canvas id="canvas-main" class="main-overlay-canvas"></canvas>
+          <canvas
+            id="canvas-main"
+            class="main-overlay-canvas main-body-display-img-overlay-transition"
+          ></canvas>
         </div>
       </div>
       <div class="main-body-container main-body-gallery-container">
@@ -93,6 +117,7 @@
           </div>
         </div>
       </div>
+      <h1 class="body-title">Nike Recolors</h1>
       <div class="main-body-container">
         <div class="main-body-container main-body-container-box">
           <div class="main-body-container-left">
