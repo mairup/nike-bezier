@@ -126,7 +126,7 @@ body {
 }
 
 .main-body-display-img-overlay-transition {
-  transition: all 0.5s;
+  transition: opacity 0.5s;
 }
 
 .main-body-display-move {
@@ -265,14 +265,6 @@ body {
   position: absolute;
   width: 90%;
   margin: 20% 5%;
-  opacity: 70%;
-}
-
-.half-width-img-overlay-svg {
-  position: absolute;
-  width: 38.8%;
-  top: 43.5%;
-  left: 48.4%;
   opacity: 70%;
 }
 
