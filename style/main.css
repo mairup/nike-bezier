@@ -267,7 +267,13 @@ body {
   margin: 20% 5%;
   opacity: 70%;
 }
-
+.half-width-img-overlay-svg {
+  position: absolute;
+  width: 38.8%;
+  top: 43.5%;
+  left: 48.4%;
+  opacity: 70%;
+}
 .half-width-img-overlay-canvas {
   position: absolute;
   background-image: url("../img/nike-shoe-orange.png");
