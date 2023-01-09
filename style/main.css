@@ -14,6 +14,7 @@ body {
   position: sticky;
   top: 0;
   z-index: 10;
+  box-shadow: #797979a6 0 0 15px 5px;
 }
 
 #site-icon {
@@ -45,6 +46,7 @@ body {
   display: flex;
   flex-flow: row;
   overflow-x: auto;
+  max-width: 85vw;
 }
 
 .header-button {
@@ -60,8 +62,8 @@ body {
   cursor: pointer;
   transition: background-color 0.3s ease, border-radius 0.3s ease;
   box-sizing: border-box;
-  width: 170px;
-  min-width: 130px;
+  width: 200px;
+  min-width: 140px;
   caret-color: rgba(0, 0, 0, 0);
   user-select: none;
 }
@@ -309,7 +311,7 @@ body {
 }
 .half-width-img-overlay-canvas {
   position: absolute;
-  background-image: url("../img/nike-shoe-orange-white.png");
+  background-image: url("../img/nike-shoe-orange-white2.png");
   background-size: contain;
 }
 
@@ -360,6 +362,7 @@ body {
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
     overflow-x: scroll;
+    max-width: 100vw;
   }
   .main-body-container-right-text,
   .main-body-container-left-text {

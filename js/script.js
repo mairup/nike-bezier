@@ -120,7 +120,7 @@ function resizeMainCanvas() {
     "scale(" + scale + "%)";
   let scale2 =
     document.getElementById("half-width-img-bezier").offsetWidth / 4.3;
-  scale2 = Math.floor(scale2);
+  //scale2 = Math.floor(scale2);
   document.getElementById("canvas").style.transform = "scale(" + scale2 + "%)";
 }
 
