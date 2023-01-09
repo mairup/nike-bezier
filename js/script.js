@@ -126,7 +126,7 @@ function resizeMainCanvas() {
 
 function setPNG() {
   document.getElementById("main-body-display-img-background").src =
-    "img/nike-shoe-yello-white-darkened2.png";
+    "img/nike-shoe-yello-white-darkened3.png";
   document.getElementById("main-body-display-img-overlay-png").style.opacity =
     "70%";
   document.getElementById(
@@ -147,7 +147,7 @@ function setPNG() {
 
 function setSVG() {
   document.getElementById("main-body-display-img-background").src =
-    "img/nike-shoe-blue-white.png";
+    "img/nike-shoe-blue-white2.png";
   document.getElementById(
     "main-body-display-img-overlay-png"
   ).style.opacity = 0;

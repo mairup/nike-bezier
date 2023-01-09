@@ -6,17 +6,20 @@ body {
 }
 
 .main-header {
-  height: 50px;
+  height: 75px;
   background-color: rgb(228, 228, 228);
   width: 100%;
   display: flex;
   flex-flow: row;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
 #site-icon {
   background-image: url("../img/logo.svg");
   background-size: cover;
-  width: 50px;
+  width: 75px;
   height: 100%;
   margin-left: 10px;
 }
@@ -45,7 +48,7 @@ body {
 }
 
 .header-button {
-  font-size: 15px;
+  font-size: 17px;
   font-weight: 500;
   margin: 5px 10px;
   height: 65%;
@@ -167,7 +170,7 @@ body {
 
 .main-overlay-canvas {
   position: absolute;
-  background-image: url("../img/nike-shoe-orange-white.png");
+  background-image: url("../img/nike-shoe-orange-white2.png");
   background-size: contain;
   display: flex;
   align-self: center;
@@ -341,7 +344,7 @@ body {
 @media screen and (max-width: 630px) {
   .main-header {
     flex-flow: column;
-    height: 100px;
+    height: 150px;
   }
   .main-header-left,
   .main-header-right-container {
