@@ -143,6 +143,8 @@ function setPNG() {
   document
     .getElementById("menu-set-bezier-button")
     .classList.remove("header-button-selected");
+  document.getElementById("main-body-display-selected-img-title").innerText =
+    "PNG Version";
 }
 
 function setSVG() {
@@ -164,6 +166,8 @@ function setSVG() {
   document
     .getElementById("menu-set-bezier-button")
     .classList.remove("header-button-selected");
+  document.getElementById("main-body-display-selected-img-title").innerText =
+    "SVG Version";
 }
 
 function setBezier() {
@@ -184,4 +188,6 @@ function setBezier() {
   document
     .getElementById("menu-set-bezier-button")
     .classList.add("header-button-selected");
+  document.getElementById("main-body-display-selected-img-title").innerText =
+    "Bezier Version";
 }

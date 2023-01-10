@@ -91,13 +91,60 @@ body {
   justify-content: center;
   align-items: center;
   margin: 60px 0 0;
-  max-width: 1200px;
+  max-width: 1500px;
 }
 
 .body-title {
   margin: 60px 0 0;
   color: rgb(228, 228, 228);
   font-size: 50px;
+  width: 80%;
+  max-width: 1500px;
+  text-align: center;
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  font-weight: 500;
+}
+
+#main-body-title {
+  justify-content: space-evenly;
+}
+
+.main-body-title-title {
+  display: grid;
+  align-items: center;
+}
+
+.main-body-title-buy-container {
+  width: 230px;
+  height: 60px;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.main-body-title-buy-button {
+  height: 100%;
+  width: 100%;
+  border-radius: 4px;
+  display: grid;
+  align-items: center;
+  color: rgb(200, 200, 200);
+  caret-color: rgba(0, 0, 0, 0);
+  user-select: none;
+  border: 3px solid rgb(200, 200, 200);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.main-body-title-buy-button:hover {
+  background-color: rgb(200, 200, 200);
+  color: rgb(78, 78, 78);
+  cursor: pointer;
+}
+
+.main-body-title-buy-button h6 {
+  margin: 0;
 }
 
 .main-body-container-display {
@@ -107,7 +154,6 @@ body {
   justify-content: center;
   align-items: center;
   margin: 60px 0 0;
-  max-width: 1200px;
 }
 
 #main-body-display-img {
@@ -118,6 +164,7 @@ body {
   position: relative;
   overflow: hidden;
   border-radius: 30px;
+  max-width: 1500px;
 }
 
 #main-body-display-img-background {
@@ -195,7 +242,27 @@ body {
 .main-body-display-selected-img-icon {
   width: 12px;
   height: 12px;
+  transform: scale(2);
+  border-radius: 50px;
+}
+#main-body-display-selected-img-icon-default {
+  background-color: #5a5a5a;
+}
+#main-body-display-selected-img-icon-png {
+  background-color: #e4e81e;
+}
+#main-body-display-selected-img-icon-svg {
+  background-color: #00d79b;
+}
+#main-body-display-selected-img-icon-bezier {
+  background-color: #fcaa26;
+}
+
+.main-body-display-selected-img-icon-underlay {
+  width: 12px;
+  height: 12px;
   background-color: black;
+  transform: scale(0.6);
   border-radius: 50px;
 }
 
@@ -313,6 +380,12 @@ body {
   position: absolute;
   background-image: url("../img/nike-shoe-orange-white2.png");
   background-size: contain;
+}
+
+@media screen and (min-width: 1300px) {
+  .main-body-container-gallery img {
+    height: 400px;
+  }
 }
 
 @media screen and (max-width: 1000px) {
