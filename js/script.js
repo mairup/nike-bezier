@@ -1,3 +1,11 @@
+let cdi = 0;
+let timeoutTime = 1000;
+// current display img
+
+let cdiTimeout = setTimeout(() => {
+  changeDisplayImage();
+}, timeoutTime);
+
 window.addEventListener("load", () => {
   if (window.innerWidth <= 1000) swapHalfWidthImgLeft();
   else swapHalfWidthImgRight();
@@ -124,70 +132,112 @@ function resizeMainCanvas() {
   document.getElementById("canvas").style.transform = "scale(" + scale2 + "%)";
 }
 
+function setDefault() {
+  cdi = 0;
+  document.getElementById("main-body-display-img-background").src =
+    "img/nike-shoe.png";
+  document.getElementById("main-body-display-img-overlay-png").style.opacity =
+    "0%";
+  document.getElementById(
+    "main-body-display-img-overlay-svg"
+  ).style.opacity = 0;
+  document.getElementById("canvas-main").style.opacity = 0;
+
+  document
+    .getElementById("menu-set-png-button")
+    .classList.remove("header-button-selected");
+  document
+    .getElementById("menu-set-svg-button")
+    .classList.remove("header-button-selected");
+  document
+    .getElementById("menu-set-bezier-button")
+    .classList.remove("header-button-selected");
+  document.getElementById("main-body-display-selected-img-title").innerText =
+    "Default";
+
+  timeoutHandler();
+}
+
 function setPNG() {
+  setDefault();
+  cdi = 1;
   document.getElementById("main-body-display-img-background").src =
     "img/nike-shoe-yello-white-darkened3.png";
   document.getElementById("main-body-display-img-overlay-png").style.opacity =
     "70%";
-  document.getElementById(
-    "main-body-display-img-overlay-svg"
-  ).style.opacity = 0;
-  document.getElementById("canvas-main").style.opacity = 0;
 
   document
     .getElementById("menu-set-png-button")
     .classList.add("header-button-selected");
-  document
-    .getElementById("menu-set-svg-button")
-    .classList.remove("header-button-selected");
-  document
-    .getElementById("menu-set-bezier-button")
-    .classList.remove("header-button-selected");
+
   document.getElementById("main-body-display-selected-img-title").innerText =
     "PNG Version";
+
+  timeoutHandler();
 }
 
 function setSVG() {
+  setDefault();
+  cdi = 2;
   document.getElementById("main-body-display-img-background").src =
     "img/nike-shoe-blue-white2.png";
-  document.getElementById(
-    "main-body-display-img-overlay-png"
-  ).style.opacity = 0;
   document.getElementById("main-body-display-img-overlay-svg").style.opacity =
     "70%";
-  document.getElementById("canvas-main").style.opacity = 0;
 
-  document
-    .getElementById("menu-set-png-button")
-    .classList.remove("header-button-selected");
   document
     .getElementById("menu-set-svg-button")
     .classList.add("header-button-selected");
-  document
-    .getElementById("menu-set-bezier-button")
-    .classList.remove("header-button-selected");
   document.getElementById("main-body-display-selected-img-title").innerText =
     "SVG Version";
+
+  timeoutHandler();
 }
 
 function setBezier() {
-  document.getElementById(
-    "main-body-display-img-overlay-png"
-  ).style.opacity = 0;
-  document.getElementById(
-    "main-body-display-img-overlay-svg"
-  ).style.opacity = 0;
+  setDefault();
+  cdi = -1;
   document.getElementById("canvas-main").style.opacity = 100;
 
   document
-    .getElementById("menu-set-png-button")
-    .classList.remove("header-button-selected");
-  document
-    .getElementById("menu-set-svg-button")
-    .classList.remove("header-button-selected");
-  document
     .getElementById("menu-set-bezier-button")
     .classList.add("header-button-selected");
+
   document.getElementById("main-body-display-selected-img-title").innerText =
     "Bezier Version";
+
+  timeoutHandler();
+}
+
+function changeDisplayImage() {
+  switch (++cdi) {
+    case 0:
+      setDefault();
+      break;
+    case 1:
+      setPNG();
+      break;
+    case 2:
+      setDefault();
+      setSVG();
+      break;
+    case 3:
+      setDefault();
+      setBezier();
+      break;
+  }
+}
+
+function displayImageSwap(imgNum) {
+  if (imgNum > cdi) {
+    console.log("swap right");
+  } else if (imgNum < cdi) {
+    console.log("swap left");
+  }
+}
+
+function timeoutHandler() {
+  if (cdiTimeout != null) clearTimeout(cdiTimeout);
+  cdiTimeout = setTimeout(() => {
+    changeDisplayImage();
+  }, timeoutTime);
 }

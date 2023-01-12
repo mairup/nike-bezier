@@ -186,6 +186,8 @@ body {
   width: 10%;
   background-color: rgba(102, 102, 102, 0.329);
   position: absolute;
+  opacity: 0;
+  transition: opacity 0.2s ease;
 }
 
 #main-body-display-left {
