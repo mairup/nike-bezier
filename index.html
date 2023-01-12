@@ -67,11 +67,6 @@
             src="img/nike-shoe.png"
             alt="display photo"
           />
-          <div id="main-body-display-left" class="main-body-display-move"></div>
-          <div
-            id="main-body-display-right"
-            class="main-body-display-move"
-          ></div>
           <div
             class="main-body-display-img-overlay main-body-display-img-overlay-transition"
             id="main-body-display-img-overlay-png"
@@ -93,14 +88,19 @@
             id="canvas-main"
             class="main-overlay-canvas main-body-display-img-overlay-transition"
           ></canvas>
+          <div id="main-body-display-left" class="main-body-display-move"></div>
+          <div
+            id="main-body-display-right"
+            class="main-body-display-move"
+          ></div>
           <div class="main-body-display-selected-img-icon-container">
             <div
-              class="main-body-display-selected-img-icon"
+              class="main-body-display-selected-img-icon main-body-display-selected-img-icon-selected"
               id="main-body-display-selected-img-icon-default"
             >
               <div
-                class="main-body-display-selected-img-icon-underlay"
-                id="main-body-display-selected-img-icon-default-underlay"
+                class="main-body-display-selected-img-icon-overlay main-body-display-selected-img-icon-overlay-selected"
+                id="main-body-display-selected-img-icon-default-overlay"
               ></div>
             </div>
             <div
@@ -108,8 +108,8 @@
               id="main-body-display-selected-img-icon-png"
             >
               <div
-                class="main-body-display-selected-img-icon-underlay"
-                id="main-body-display-selected-img-icon-png-underlay"
+                class="main-body-display-selected-img-icon-overlay"
+                id="main-body-display-selected-img-icon-png-overlay"
               ></div>
             </div>
             <div
@@ -117,8 +117,8 @@
               id="main-body-display-selected-img-icon-svg"
             >
               <div
-                class="main-body-display-selected-img-icon-underlay"
-                id="main-body-display-selected-img-icon-svg-underlay"
+                class="main-body-display-selected-img-icon-overlay"
+                id="main-body-display-selected-img-icon-svg-overlay"
               ></div>
             </div>
             <div
@@ -126,8 +126,8 @@
               id="main-body-display-selected-img-icon-bezier"
             >
               <div
-                class="main-body-display-selected-img-icon-underlay"
-                id="main-body-display-selected-img-icon-bezier-underlay"
+                class="main-body-display-selected-img-icon-overlay"
+                id="main-body-display-selected-img-icon-bezier-overlay"
               ></div>
             </div>
           </div>

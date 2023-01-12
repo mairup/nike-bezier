@@ -244,9 +244,16 @@ body {
 .main-body-display-selected-img-icon {
   width: 12px;
   height: 12px;
-  transform: scale(2);
+  transform: scale(1);
   border-radius: 50px;
+  transition: transform 0.2s ease-in-out;
 }
+
+.main-body-display-selected-img-icon-selected {
+  transform: scale(2);
+  box-shadow: rgba(119, 119, 119, 0.521) 0 0 3px 1px;
+}
+
 #main-body-display-selected-img-icon-default {
   background-color: #5a5a5a;
 }
@@ -260,12 +267,17 @@ body {
   background-color: #fcaa26;
 }
 
-.main-body-display-selected-img-icon-underlay {
+.main-body-display-selected-img-icon-overlay {
   width: 12px;
   height: 12px;
   background-color: black;
-  transform: scale(0.6);
+  transform: scale(1);
   border-radius: 50px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.main-body-display-selected-img-icon-overlay-selected {
+  transform: scale(0.6);
 }
 
 .main-body-display-selected-img-title {

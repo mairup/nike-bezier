@@ -155,6 +155,15 @@ function setDefault() {
   document.getElementById("main-body-display-selected-img-title").innerText =
     "Default";
 
+  removeSelectedImgIcon();
+  document
+    .getElementById("main-body-display-selected-img-icon-default")
+    .classList.add("main-body-display-selected-img-icon-selected");
+
+  document
+    .getElementById("main-body-display-selected-img-icon-default-overlay")
+    .classList.add("main-body-display-selected-img-icon-overlay-selected");
+
   timeoutHandler();
 }
 
@@ -173,6 +182,14 @@ function setPNG() {
   document.getElementById("main-body-display-selected-img-title").innerText =
     "PNG Version";
 
+  removeSelectedImgIcon();
+  document
+    .getElementById("main-body-display-selected-img-icon-png")
+    .classList.add("main-body-display-selected-img-icon-selected");
+
+  document
+    .getElementById("main-body-display-selected-img-icon-png-overlay")
+    .classList.add("main-body-display-selected-img-icon-overlay-selected");
   timeoutHandler();
 }
 
@@ -190,6 +207,14 @@ function setSVG() {
   document.getElementById("main-body-display-selected-img-title").innerText =
     "SVG Version";
 
+  removeSelectedImgIcon();
+  document
+    .getElementById("main-body-display-selected-img-icon-svg")
+    .classList.add("main-body-display-selected-img-icon-selected");
+
+  document
+    .getElementById("main-body-display-selected-img-icon-svg-overlay")
+    .classList.add("main-body-display-selected-img-icon-overlay-selected");
   timeoutHandler();
 }
 
@@ -205,6 +230,14 @@ function setBezier() {
   document.getElementById("main-body-display-selected-img-title").innerText =
     "Bezier Version";
 
+  removeSelectedImgIcon();
+  document
+    .getElementById("main-body-display-selected-img-icon-bezier")
+    .classList.add("main-body-display-selected-img-icon-selected");
+
+  document
+    .getElementById("main-body-display-selected-img-icon-bezier-overlay")
+    .classList.add("main-body-display-selected-img-icon-overlay-selected");
   timeoutHandler();
 }
 
@@ -240,4 +273,21 @@ function timeoutHandler() {
   cdiTimeout = setTimeout(() => {
     changeDisplayImage();
   }, timeoutTime);
+}
+
+function removeSelectedImgIcon() {
+  let array1 = document.getElementsByClassName(
+    "main-body-display-selected-img-icon-overlay-selected"
+  );
+  let array2 = document.getElementsByClassName(
+    "main-body-display-selected-img-icon-selected"
+  );
+
+  while (array1.length > 0)
+    array1[0].classList.remove(
+      "main-body-display-selected-img-icon-overlay-selected"
+    );
+
+  while (array2.length > 0)
+    array2[0].classList.remove("main-body-display-selected-img-icon-selected");
 }
