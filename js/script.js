@@ -1,5 +1,5 @@
 let cdi = 0; // current display img
-let timeoutTime = 250;
+let timeoutTime = 5000;
 const bodyCons = document.getElementsByClassName("body-window");
 let sCon = 2;
 
@@ -74,16 +74,6 @@ function setDefault() {
     "main-body-display-img-overlay-svg"
   ).style.opacity = 0;
   document.getElementById("canvas-main").style.opacity = 0;
-  /*
-  document
-    .getElementById("menu-set-png-button")
-    .classList.remove("header-button-selected");
-  document
-    .getElementById("menu-set-svg-button")
-    .classList.remove("header-button-selected");
-  document
-    .getElementById("menu-set-bezier-button")
-    .classList.remove("header-button-selected");*/
   document.getElementById("main-body-display-selected-img-title").innerText =
     "Default";
 
@@ -107,10 +97,6 @@ function setPNG() {
   document.getElementById("main-body-display-img-overlay-png").style.opacity =
     "70%";
 
-  //document
-  //  .getElementById("menu-set-png-button")
-  //  .classList.add("header-button-selected");
-
   document.getElementById("main-body-display-selected-img-title").innerText =
     "PNG Version";
 
@@ -133,9 +119,6 @@ function setSVG() {
   document.getElementById("main-body-display-img-overlay-svg").style.opacity =
     "70%";
 
-  //document
-  //  .getElementById("menu-set-svg-button")
-  //  .classList.add("header-button-selected");
   document.getElementById("main-body-display-selected-img-title").innerText =
     "SVG Version";
 
@@ -154,10 +137,6 @@ function setBezier() {
   setDefault();
   cdi = -1;
   document.getElementById("canvas-main").style.opacity = 100;
-
-  //document
-  //  .getElementById("menu-set-bezier-button")
-  // .classList.add("header-button-selected");
 
   document.getElementById("main-body-display-selected-img-title").innerText =
     "Bezier Version";
