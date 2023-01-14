@@ -1,6 +1,7 @@
-let cdi = 0;
-let timeoutTime = 1000;
-// current display img
+let cdi = 0; // current display img
+let timeoutTime = 10000;
+const bodyCons = document.getElementsByClassName("body-window");
+let sCon = 2;
 
 let cdiTimeout = setTimeout(() => {
   changeDisplayImage();
@@ -10,6 +11,14 @@ window.addEventListener("load", () => {
   if (window.innerWidth <= 1000) swapHalfWidthImgLeft();
   else swapHalfWidthImgRight();
   resizeMainCanvas();
+  changeShownContainerWindow(true);
+});
+
+window.addEventListener("resize", () => {
+  if (window.innerWidth <= 1000) swapHalfWidthImgLeft();
+  else swapHalfWidthImgRight();
+  resizeMainCanvas();
+  resizeBody();
 });
 
 function drawShape(ctx, xoff, yoff) {
@@ -82,12 +91,6 @@ function drawShape(ctx, xoff, yoff) {
   ctx.fillStyle = "rgba(252, 170, 38, 0.7)";
   ctx.fill();
 }
-
-window.addEventListener("resize", () => {
-  if (window.innerWidth <= 1000) swapHalfWidthImgLeft();
-  else swapHalfWidthImgRight();
-  resizeMainCanvas();
-});
 
 function swapHalfWidthImgLeft() {
   let tmp = document
@@ -290,4 +293,23 @@ function removeSelectedImgIcon() {
 
   while (array2.length > 0)
     array2[0].classList.remove("main-body-display-selected-img-icon-selected");
+}
+
+document.addEventListener("click", () => {
+  changeShownContainerWindow(true);
+});
+
+function changeShownContainerWindow(side) {
+  bodyCons[sCon].style.opacity = 0;
+  side ? sCon++ : sCon--;
+  if (sCon >= bodyCons.length) sCon = 0;
+  if (sCon < 0) sCon = bodyCons.length - 1;
+  bodyCons[sCon].style.opacity = 1;
+  console.log(sCon);
+  resizeBody();
+}
+
+function resizeBody() {
+  document.getElementById("main-body").style.height =
+    Math.floor(bodyCons[sCon].clientHeight + 120) + "px";
 }

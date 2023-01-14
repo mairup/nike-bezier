@@ -15,6 +15,7 @@ body {
   top: 0;
   z-index: 10;
   box-shadow: #797979a6 0 0 15px 5px;
+  caret-color: rgba(0, 0, 0, 0);
 }
 
 #site-icon {
@@ -64,7 +65,6 @@ body {
   box-sizing: border-box;
   width: 200px;
   min-width: 140px;
-  caret-color: rgba(0, 0, 0, 0);
   user-select: none;
 }
 
@@ -83,7 +83,16 @@ body {
   flex-flow: column;
   width: 100%;
   align-items: center;
+  position: relative;
+  overflow: hidden;
 }
+
+.body-window {
+  position: absolute;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
 .main-body-container {
   width: 100%;
   display: flex;
