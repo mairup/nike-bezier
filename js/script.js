@@ -1,5 +1,5 @@
 let cdi = 0; // current display img
-let timeoutTime = 10000;
+let timeoutTime = 5000;
 const bodyCons = document.getElementsByClassName("body-window");
 let sCon = 2;
 
@@ -145,7 +145,7 @@ function setDefault() {
     "main-body-display-img-overlay-svg"
   ).style.opacity = 0;
   document.getElementById("canvas-main").style.opacity = 0;
-
+  /*
   document
     .getElementById("menu-set-png-button")
     .classList.remove("header-button-selected");
@@ -157,6 +157,7 @@ function setDefault() {
     .classList.remove("header-button-selected");
   document.getElementById("main-body-display-selected-img-title").innerText =
     "Default";
+    */
 
   removeSelectedImgIcon();
   document
@@ -178,9 +179,9 @@ function setPNG() {
   document.getElementById("main-body-display-img-overlay-png").style.opacity =
     "70%";
 
-  document
-    .getElementById("menu-set-png-button")
-    .classList.add("header-button-selected");
+  //document
+  //  .getElementById("menu-set-png-button")
+  //  .classList.add("header-button-selected");
 
   document.getElementById("main-body-display-selected-img-title").innerText =
     "PNG Version";
@@ -204,9 +205,9 @@ function setSVG() {
   document.getElementById("main-body-display-img-overlay-svg").style.opacity =
     "70%";
 
-  document
-    .getElementById("menu-set-svg-button")
-    .classList.add("header-button-selected");
+  //document
+  //  .getElementById("menu-set-svg-button")
+  //  .classList.add("header-button-selected");
   document.getElementById("main-body-display-selected-img-title").innerText =
     "SVG Version";
 
@@ -226,9 +227,9 @@ function setBezier() {
   cdi = -1;
   document.getElementById("canvas-main").style.opacity = 100;
 
-  document
-    .getElementById("menu-set-bezier-button")
-    .classList.add("header-button-selected");
+  //document
+  //  .getElementById("menu-set-bezier-button")
+  // .classList.add("header-button-selected");
 
   document.getElementById("main-body-display-selected-img-title").innerText =
     "Bezier Version";
@@ -294,18 +295,25 @@ function removeSelectedImgIcon() {
   while (array2.length > 0)
     array2[0].classList.remove("main-body-display-selected-img-icon-selected");
 }
-
+/*
 document.addEventListener("click", () => {
   changeShownContainerWindow(true);
-});
+});*/
 
+//   unused currently, leaving it in just in case
 function changeShownContainerWindow(side) {
   bodyCons[sCon].style.opacity = 0;
   side ? sCon++ : sCon--;
   if (sCon >= bodyCons.length) sCon = 0;
   if (sCon < 0) sCon = bodyCons.length - 1;
   bodyCons[sCon].style.opacity = 1;
-  console.log(sCon);
+  resizeBody();
+}
+
+function changeShownContainerWindowCustom(setTo) {
+  bodyCons[sCon].style.opacity = 0;
+  bodyCons[setTo].style.opacity = 1;
+  sCon = setTo;
   resizeBody();
 }
 

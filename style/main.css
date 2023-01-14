@@ -85,12 +85,13 @@ body {
   align-items: center;
   position: relative;
   overflow: hidden;
+  transition: height 0.2s ease;
 }
 
 .body-window {
   position: absolute;
   opacity: 0;
-  transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
 }
 
 .main-body-container {
