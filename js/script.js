@@ -45,7 +45,7 @@ function resizeCanvas() {
   const mainCtx = mainCanvas.getContext("2d");
 
   const mainCanvas2 = document.getElementById("canvas-main-2");
-  const mainCtx2 = mainCanvas.getContext("2d");
+  const mainCtx2 = mainCanvas2.getContext("2d");
 
   canvas.height = 224;
   canvas.width = 432;
@@ -73,33 +73,37 @@ function resizeCanvas() {
   document.getElementById("canvas").style.transform = "scale(" + scale2 + "%)";
 }
 
-function setDefault() {
+function setDefault(s) {
   cdi = 0;
-  document.getElementById("main-body-display-img-background").src =
+  document.getElementById("main-body-display-img-background" + s).src =
     "img/nike-shoe.png";
-  document.getElementById("main-body-display-img-overlay-png").style.opacity =
-    "0%";
   document.getElementById(
-    "main-body-display-img-overlay-svg"
+    "main-body-display-img-overlay-png" + s
+  ).style.opacity = "0%";
+  document.getElementById(
+    "main-body-display-img-overlay-svg" + s
   ).style.opacity = 0;
-  document.getElementById("canvas-main").style.opacity = 0;
-  document.getElementById("main-body-display-selected-img-title").innerText =
-    "Default";
+  document.getElementById("canvas-main" + s).style.opacity = 0;
 
-  removeSelectedImgIcon();
-  document
-    .getElementById("main-body-display-selected-img-icon-default")
-    .classList.add("main-body-display-selected-img-icon-selected");
+  if (s == "") {
+    document.getElementById("main-body-display-selected-img-title").innerText =
+      "Default";
 
-  document
-    .getElementById("main-body-display-selected-img-icon-default-overlay")
-    .classList.add("main-body-display-selected-img-icon-overlay-selected");
+    removeSelectedImgIcon();
+    document
+      .getElementById("main-body-display-selected-img-icon-default")
+      .classList.add("main-body-display-selected-img-icon-selected");
 
-  timeoutHandler();
+    document
+      .getElementById("main-body-display-selected-img-icon-default-overlay")
+      .classList.add("main-body-display-selected-img-icon-overlay-selected");
+
+    timeoutHandler();
+  }
 }
 
 function setPNG(s) {
-  setDefault();
+  setDefault(s);
   cdi = 1;
   document.getElementById("main-body-display-img-background" + s).src =
     "img/nike-shoe-yello-white-darkened3.png";
@@ -107,23 +111,25 @@ function setPNG(s) {
     "main-body-display-img-overlay-png" + s
   ).style.opacity = "70%";
 
-  document.getElementById(
-    "main-body-display-selected-img-title" + s
-  ).innerText = "PNG Version";
+  if (s == "") {
+    document.getElementById(
+      "main-body-display-selected-img-title" + s
+    ).innerText = "PNG Version";
 
-  removeSelectedImgIcon();
-  document
-    .getElementById("main-body-display-selected-img-icon-png" + s)
-    .classList.add("main-body-display-selected-img-icon-selected");
+    removeSelectedImgIcon();
+    document
+      .getElementById("main-body-display-selected-img-icon-png" + s)
+      .classList.add("main-body-display-selected-img-icon-selected");
 
-  document
-    .getElementById("main-body-display-selected-img-icon-png-overlay" + s)
-    .classList.add("main-body-display-selected-img-icon-overlay-selected");
-  timeoutHandler();
+    document
+      .getElementById("main-body-display-selected-img-icon-png-overlay" + s)
+      .classList.add("main-body-display-selected-img-icon-overlay-selected");
+    timeoutHandler();
+  }
 }
 
 function setSVG(s) {
-  setDefault();
+  setDefault(s);
   cdi = 2;
   document.getElementById("main-body-display-img-background" + s).src =
     "img/nike-shoe-blue-white2.png";
@@ -131,27 +137,29 @@ function setSVG(s) {
     "main-body-display-img-overlay-svg" + s
   ).style.opacity = "70%";
 
-  document.getElementById(
-    "main-body-display-selected-img-title" + s
-  ).innerText = "SVG Version";
+  if (s == "") {
+    document.getElementById(
+      "main-body-display-selected-img-title" + s
+    ).innerText = "SVG Version";
 
-  removeSelectedImgIcon();
-  document
-    .getElementById("main-body-display-selected-img-icon-svg" + s)
-    .classList.add("main-body-display-selected-img-icon-selected");
+    removeSelectedImgIcon();
+    document
+      .getElementById("main-body-display-selected-img-icon-svg" + s)
+      .classList.add("main-body-display-selected-img-icon-selected");
 
-  document
-    .getElementById("main-body-display-selected-img-icon-svg-overlay" + s)
-    .classList.add("main-body-display-selected-img-icon-overlay-selected");
-  timeoutHandler();
+    document
+      .getElementById("main-body-display-selected-img-icon-svg-overlay" + s)
+      .classList.add("main-body-display-selected-img-icon-overlay-selected");
+    timeoutHandler();
+  }
 }
 
 function setBezier(s) {
-  setDefault();
+  setDefault(s);
   cdi = -1;
   document.getElementById("canvas-main" + s).style.opacity = 100;
 
-  if (s == null) {
+  if (s == "") {
     document.getElementById(
       "main-body-display-selected-img-title" + s
     ).innerText = "Bezier Version";
