@@ -1,7 +1,7 @@
 let cdi = 0; // current display img
-let timeoutTime = 5000;
+let timeoutTime = 1000;
 const bodyCons = document.getElementsByClassName("body-window");
-let sCon = 2;
+let sCon = 2; // shown container (?)
 
 let cdiTimeout = setTimeout(() => {
   changeDisplayImage();
@@ -171,11 +171,46 @@ function changeDisplayImage() {
   }
 }
 
-function displayImageSwap(imgNum) {
-  if (imgNum > cdi) {
+function displayImageSwap() {
+  /*if (imgNum > cdi) {
     console.log("swap right");
   } else if (imgNum < cdi) {
     console.log("swap left");
+  }*/
+
+  let temp = document.getElementById("main-body-container-display-temp");
+  let main = document.getElementById("main-body-container-display");
+
+  displayImageSwapMove(main, "right");
+}
+
+function displayImageSwapMove(item, side) {
+  if (side == "center") {
+    item.style;
+  } else {
+    if (side == "left") side = "-";
+    side = "";
+    item.style.transform = "translateX(" + side + "10%)";
+    item.style.transition = "";
+  }
+}
+
+function moveDisplayContainer() {
+  let temp = document.createDocumentFragment();
+  let main = document.getElementById("main-body-container-display");
+
+  if (main.childElementCount > 0) {
+    // if elements are in main
+
+    temp.append(document.getElementById("main-body-display-img"));
+    console.log("a");
+    document.getElementById("main-body-container-display-temp").append(temp);
+  } else {
+    // if elements are in temp
+
+    temp.append(document.getElementById("main-body-display-img"));
+    console.log("b");
+    main.append(temp);
   }
 }
 

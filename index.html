@@ -4,13 +4,6 @@
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="style/main.css" />
     <link rel="shortcut icon" href="img/favicon.png" />
-    <!-- FONT IMPORT -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,400;8..144,500&display=swap"
-      rel="stylesheet"
-    />
     <title>Nike</title>
   </head>
 
@@ -27,6 +20,7 @@
             onclick="
           changeShownContainerWindowCustom(0);"
           >
+            <img src="img/home-icon.svg" alt="" class="header-botton-icon" />
             Home
           </div>
           <div
@@ -35,6 +29,7 @@
             onclick="
           changeShownContainerWindowCustom(1);"
           >
+            <img src="img/gallery-icon.svg" alt="" class="header-botton-icon" />
             Gallery
           </div>
           <div
@@ -43,6 +38,7 @@
             onclick="
           changeShownContainerWindowCustom(2);"
           >
+            <img src="img/info-icon.svg" alt="" class="header-botton-icon" />
             Info
           </div>
         </div>
@@ -62,36 +58,46 @@
       </div>
     -->
       <div
+        id="main-body-container-display"
         class="body-window main-body-container-display"
-        style="position: relative"
+        style="position: absolute"
       >
-        <div id="main-body-display-img">
-          <img
-            id="main-body-display-img-background"
-            src="img/nike-shoe.png"
-            alt="display photo"
-          />
+        <div id="main-body-display-img" class="main-body-display-img">
           <div
-            class="main-body-display-img-overlay main-body-display-img-overlay-transition"
-            id="main-body-display-img-overlay-png"
+            id="main-body-display-img-main"
+            class="main-body-display-img-swapper"
+          >
+            <img
+              id="main-body-display-img-background"
+              src="img/nike-shoe.png"
+              alt="display photo"
+            />
+            <div
+              class="main-body-display-img-overlay main-body-display-img-overlay-transition"
+              id="main-body-display-img-overlay-png"
+            ></div>
+            <img
+              id="main-body-display-img-overlay-svg"
+              class="half-width-img-overlay-svg main-body-display-img-overlay-transition"
+              style="
+                position: absolute;
+                width: 43%;
+                top: 38%;
+                left: 48.2%;
+                opacity: 0%;
+              "
+              src="img/nike-overlay.svg"
+              alt="overlay"
+            />
+            <canvas
+              id="canvas-main"
+              class="main-overlay-canvas main-body-display-img-overlay-transition"
+            ></canvas>
+          </div>
+          <div
+            id="main-body-display-img-temp"
+            class="main-body-display-img-swapper"
           ></div>
-          <img
-            id="main-body-display-img-overlay-svg"
-            class="half-width-img-overlay-svg main-body-display-img-overlay-transition"
-            style="
-              position: absolute;
-              width: 43%;
-              top: 38%;
-              left: 48.2%;
-              opacity: 0%;
-            "
-            src="img/nike-overlay.svg"
-            alt="overlay"
-          />
-          <canvas
-            id="canvas-main"
-            class="main-overlay-canvas main-body-display-img-overlay-transition"
-          ></canvas>
           <div id="main-body-display-left" class="main-body-display-move"></div>
           <div
             id="main-body-display-right"
@@ -143,6 +149,11 @@
           </div>
         </div>
       </div>
+      <!--<div
+        class="main-body-container-display"
+        id="main-body-container-display-temp"
+        style="position: absolute"
+      ></div>-->
       <div class="main-body-container main-body-gallery-container body-window">
         <div class="main-body-container-gallery">
           <div
