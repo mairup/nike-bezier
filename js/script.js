@@ -10,14 +10,14 @@ let cdiTimeout = setTimeout(() => {
 window.addEventListener("load", () => {
   if (window.innerWidth <= 1000) swapHalfWidthImgLeft();
   else swapHalfWidthImgRight();
-  resizeMainCanvas();
+  resizeCanvas();
   changeShownContainerWindowCustom(0);
 });
 
 window.addEventListener("resize", () => {
   if (window.innerWidth <= 1000) swapHalfWidthImgLeft();
   else swapHalfWidthImgRight();
-  resizeMainCanvas();
+  resizeCanvas();
   resizeBody();
 });
 
@@ -37,12 +37,15 @@ function swapHalfWidthImgRight() {
   document.getElementById("main-body-sides-container").append(tmp);
 }
 
-function resizeMainCanvas() {
+function resizeCanvas() {
   const canvas = document.getElementById("canvas");
   const ctx = canvas.getContext("2d");
 
   const mainCanvas = document.getElementById("canvas-main");
   const mainCtx = mainCanvas.getContext("2d");
+
+  const mainCanvas2 = document.getElementById("canvas-main-2");
+  const mainCtx2 = mainCanvas.getContext("2d");
 
   canvas.height = 224;
   canvas.width = 432;
@@ -50,17 +53,23 @@ function resizeMainCanvas() {
   mainCanvas.height = canvas.height;
   mainCanvas.width = canvas.width;
 
+  mainCanvas2.height = mainCanvas.height;
+  mainCanvas2.width = mainCanvas.width;
+
   drawShape(ctx, -78, -223);
   drawShape(mainCtx, -78, -223);
+  drawShape(mainCtx2, -78, -223);
 
   let scale =
     document.getElementById("main-body-display-img").offsetWidth / 4.3;
   scale = Math.floor(scale);
   document.getElementById("canvas-main").style.transform =
     "scale(" + scale + "%)";
+  document.getElementById("canvas-main-2").style.transform =
+    "scale(" + scale + "%)";
   let scale2 =
     document.getElementById("half-width-img-bezier").offsetWidth / 4.3;
-  //scale2 = Math.floor(scale2);
+  scale2 = Math.floor(scale2);
   document.getElementById("canvas").style.transform = "scale(" + scale2 + "%)";
 }
 
@@ -89,84 +98,89 @@ function setDefault() {
   timeoutHandler();
 }
 
-function setPNG() {
+function setPNG(s) {
   setDefault();
   cdi = 1;
-  document.getElementById("main-body-display-img-background").src =
+  document.getElementById("main-body-display-img-background" + s).src =
     "img/nike-shoe-yello-white-darkened3.png";
-  document.getElementById("main-body-display-img-overlay-png").style.opacity =
-    "70%";
+  document.getElementById(
+    "main-body-display-img-overlay-png" + s
+  ).style.opacity = "70%";
 
-  document.getElementById("main-body-display-selected-img-title").innerText =
-    "PNG Version";
+  document.getElementById(
+    "main-body-display-selected-img-title" + s
+  ).innerText = "PNG Version";
 
   removeSelectedImgIcon();
   document
-    .getElementById("main-body-display-selected-img-icon-png")
+    .getElementById("main-body-display-selected-img-icon-png" + s)
     .classList.add("main-body-display-selected-img-icon-selected");
 
   document
-    .getElementById("main-body-display-selected-img-icon-png-overlay")
+    .getElementById("main-body-display-selected-img-icon-png-overlay" + s)
     .classList.add("main-body-display-selected-img-icon-overlay-selected");
   timeoutHandler();
 }
 
-function setSVG() {
+function setSVG(s) {
   setDefault();
   cdi = 2;
-  document.getElementById("main-body-display-img-background").src =
+  document.getElementById("main-body-display-img-background" + s).src =
     "img/nike-shoe-blue-white2.png";
-  document.getElementById("main-body-display-img-overlay-svg").style.opacity =
-    "70%";
+  document.getElementById(
+    "main-body-display-img-overlay-svg" + s
+  ).style.opacity = "70%";
 
-  document.getElementById("main-body-display-selected-img-title").innerText =
-    "SVG Version";
+  document.getElementById(
+    "main-body-display-selected-img-title" + s
+  ).innerText = "SVG Version";
 
   removeSelectedImgIcon();
   document
-    .getElementById("main-body-display-selected-img-icon-svg")
+    .getElementById("main-body-display-selected-img-icon-svg" + s)
     .classList.add("main-body-display-selected-img-icon-selected");
 
   document
-    .getElementById("main-body-display-selected-img-icon-svg-overlay")
+    .getElementById("main-body-display-selected-img-icon-svg-overlay" + s)
     .classList.add("main-body-display-selected-img-icon-overlay-selected");
   timeoutHandler();
 }
 
-function setBezier() {
+function setBezier(s) {
   setDefault();
   cdi = -1;
-  document.getElementById("canvas-main").style.opacity = 100;
+  document.getElementById("canvas-main" + s).style.opacity = 100;
 
-  document.getElementById("main-body-display-selected-img-title").innerText =
-    "Bezier Version";
+  if (s == null) {
+    document.getElementById(
+      "main-body-display-selected-img-title" + s
+    ).innerText = "Bezier Version";
 
-  removeSelectedImgIcon();
-  document
-    .getElementById("main-body-display-selected-img-icon-bezier")
-    .classList.add("main-body-display-selected-img-icon-selected");
+    removeSelectedImgIcon();
+    document
+      .getElementById("main-body-display-selected-img-icon-bezier" + s)
+      .classList.add("main-body-display-selected-img-icon-selected");
 
-  document
-    .getElementById("main-body-display-selected-img-icon-bezier-overlay")
-    .classList.add("main-body-display-selected-img-icon-overlay-selected");
-  timeoutHandler();
+    document
+      .getElementById("main-body-display-selected-img-icon-bezier-overlay" + s)
+      .classList.add("main-body-display-selected-img-icon-overlay-selected");
+    timeoutHandler();
+  }
 }
 
 function changeDisplayImage() {
-  switch (++cdi) {
+  switch (cdi) {
     case 0:
-      setDefault();
+      setDefault("");
       break;
     case 1:
-      setPNG();
+      setPNG("");
       break;
     case 2:
-      setDefault();
-      setSVG();
+      setSVG("");
       break;
     case 3:
-      setDefault();
-      setBezier();
+      setBezier("");
       break;
   }
 }
@@ -196,27 +210,32 @@ function displayImageSwapMove(item, side) {
 }
 
 function moveDisplayContainer() {
-  let temp = document.createDocumentFragment();
-  let main = document.getElementById("main-body-container-display");
+  let temp = document.getElementById("main-body-display-img-temp");
+  let main = document.getElementById("main-body-display-img-main");
+  let clone = document
+    .getElementById("main-body-display-img-items")
+    .cloneNode();
 
+  temp.append(clone);
+
+  /*
   if (main.childElementCount > 0) {
     // if elements are in main
 
-    temp.append(document.getElementById("main-body-display-img"));
+    temp.append(clone);
     console.log("a");
-    document.getElementById("main-body-container-display-temp").append(temp);
   } else {
     // if elements are in temp
 
-    temp.append(document.getElementById("main-body-display-img"));
     console.log("b");
-    main.append(temp);
-  }
+    main.append(clone);
+  }*/
 }
 
 function timeoutHandler() {
   if (cdiTimeout != null) clearTimeout(cdiTimeout);
   cdiTimeout = setTimeout(() => {
+    cdi++;
     changeDisplayImage();
   }, timeoutTime);
 }

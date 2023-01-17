@@ -64,7 +64,7 @@ body {
   padding: 0 10px;
   border-radius: 50px;
   cursor: pointer;
-  transition: background-color 0.3s ease, border-radius 0.3s ease;
+  transition: background-color 0.3s ease-out, border-radius 0.3s ease;
   box-sizing: border-box;
   width: 200px;
   min-width: 140px;
