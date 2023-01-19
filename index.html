@@ -8,44 +8,49 @@
   </head>
 
   <body>
-    <div class="main-header">
-      <div class="main-header-left">
-        <div id="site-icon" onclick="setDefault()"></div>
-      </div>
-      <div class="main-header-right-container">
-        <div class="main-header-right">
-          <div
-            id="menu-set-home-button"
-            class="header-button"
-            onclick="
+    <div id="full-page-body">
+      <div class="main-header">
+        <div class="main-header-left">
+          <div id="site-icon" onclick="setDefault()"></div>
+        </div>
+        <div class="main-header-right-container">
+          <div class="main-header-right">
+            <div
+              id="menu-set-home-button"
+              class="header-button"
+              onclick="
           changeShownContainerWindowCustom(0);"
-          >
-            <img src="img/home-icon.svg" alt="" class="header-botton-icon" />
-            Home
-          </div>
-          <div
-            id="menu-set-gallery-button"
-            class="header-button"
-            onclick="
+            >
+              <img src="img/home-icon.svg" alt="" class="header-botton-icon" />
+              Home
+            </div>
+            <div
+              id="menu-set-gallery-button"
+              class="header-button"
+              onclick="
           changeShownContainerWindowCustom(1);"
-          >
-            <img src="img/gallery-icon.svg" alt="" class="header-botton-icon" />
-            Gallery
-          </div>
-          <div
-            id="menu-set-info-button"
-            class="header-button"
-            onclick="
+            >
+              <img
+                src="img/gallery-icon.svg"
+                alt=""
+                class="header-botton-icon"
+              />
+              Gallery
+            </div>
+            <div
+              id="menu-set-info-button"
+              class="header-button"
+              onclick="
           changeShownContainerWindowCustom(2);"
-          >
-            <img src="img/info-icon.svg" alt="" class="header-botton-icon" />
-            Info
+            >
+              <img src="img/info-icon.svg" alt="" class="header-botton-icon" />
+              Info
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="main-body" id="main-body">
-      <!--<div class="body-title" id="main-body-title">
+      <div class="main-body" id="main-body">
+        <!--<div class="body-title" id="main-body-title">
         <div class="main-body-title-title">Nike Air Force 1</div>
         <div class="main-body-title-buy-container">
           <div
@@ -57,267 +62,274 @@
         </div>
       </div>
     -->
-      <div
-        id="main-body-container-display"
-        class="body-window main-body-container-display"
-        style="position: absolute"
-      >
-        <div id="main-body-display-img" class="main-body-display-img">
-          <div
-            id="main-body-display-img-main"
-            class="main-body-display-img-swapper"
-          >
+        <div
+          id="main-body-container-display"
+          class="body-window main-body-container-display"
+          style="position: absolute"
+        >
+          <div id="main-body-display-img" class="main-body-display-img">
             <div
-              id="main-body-display-img-items"
+              id="main-body-display-img-main"
               class="main-body-display-img-swapper"
             >
-              <img
-                id="main-body-display-img-background"
-                src="img/nike-shoe.png"
-                alt="display photo"
-              />
               <div
-                class="main-body-display-img-overlay main-body-display-img-overlay-transition"
-                id="main-body-display-img-overlay-png"
-              ></div>
-              <img
-                id="main-body-display-img-overlay-svg"
-                class="half-width-img-overlay-svg main-body-display-img-overlay-transition"
-                style="
-                  position: absolute;
-                  width: 43%;
-                  top: 38%;
-                  left: 48.2%;
-                  opacity: 0%;
-                "
-                src="img/nike-overlay.svg"
-                alt="overlay"
-              />
-              <canvas
-                id="canvas-main"
-                class="main-overlay-canvas main-body-display-img-overlay-transition"
-              ></canvas>
+                id="main-body-display-img-items"
+                class="main-body-display-img-swapper"
+              >
+                <img
+                  id="main-body-display-img-background"
+                  src="img/nike-shoe.png"
+                  alt="display photo"
+                />
+                <div
+                  class="main-body-display-img-overlay main-body-display-img-overlay-transition"
+                  id="main-body-display-img-overlay-png"
+                ></div>
+                <img
+                  id="main-body-display-img-overlay-svg"
+                  class="half-width-img-overlay-svg main-body-display-img-overlay-transition"
+                  style="
+                    position: absolute;
+                    width: 43%;
+                    top: 38%;
+                    left: 48.2%;
+                    opacity: 0%;
+                  "
+                  src="img/nike-overlay.svg"
+                  alt="overlay"
+                />
+                <canvas
+                  id="canvas-main"
+                  class="main-overlay-canvas main-body-display-img-overlay-transition"
+                ></canvas>
+              </div>
             </div>
-          </div>
-          <div
-            id="main-body-display-img-temp"
-            class="main-body-display-img-swapper"
-            style="position: absolute; opacity: 0"
-          >
             <div
-              id="main-body-display-img-items-2"
+              id="main-body-display-img-temp"
               class="main-body-display-img-swapper"
-            >
-              <img
-                id="main-body-display-img-background-2"
-                src="img/nike-shoe.png"
-                alt="display photo"
-              />
-              <div
-                class="main-body-display-img-overlay main-body-display-img-overlay-transition"
-                id="main-body-display-img-overlay-png-2"
-              ></div>
-              <img
-                id="main-body-display-img-overlay-svg-2"
-                class="half-width-img-overlay-svg main-body-display-img-overlay-transition"
-                style="
-                  position: absolute;
-                  width: 43%;
-                  top: 38%;
-                  left: 48.2%;
-                  opacity: 0%;
-                "
-                src="img/nike-overlay.svg"
-                alt="overlay"
-              />
-              <canvas
-                id="canvas-main-2"
-                class="main-overlay-canvas main-body-display-img-overlay-transition"
-              ></canvas>
-            </div>
-          </div>
-          <div id="main-body-display-left" class="main-body-display-move"></div>
-          <div
-            id="main-body-display-right"
-            class="main-body-display-move"
-          ></div>
-          <div class="main-body-display-selected-img-icon-container">
-            <div
-              class="main-body-display-selected-img-icon main-body-display-selected-img-icon-selected"
-              id="main-body-display-selected-img-icon-default"
+              style="position: absolute; opacity: 0"
             >
               <div
-                class="main-body-display-selected-img-icon-overlay main-body-display-selected-img-icon-overlay-selected"
-                id="main-body-display-selected-img-icon-default-overlay"
-              ></div>
+                id="main-body-display-img-items-2"
+                class="main-body-display-img-swapper"
+              >
+                <img
+                  id="main-body-display-img-background-2"
+                  src="img/nike-shoe.png"
+                  alt="display photo"
+                />
+                <div
+                  class="main-body-display-img-overlay main-body-display-img-overlay-transition"
+                  id="main-body-display-img-overlay-png-2"
+                ></div>
+                <img
+                  id="main-body-display-img-overlay-svg-2"
+                  class="half-width-img-overlay-svg main-body-display-img-overlay-transition"
+                  style="
+                    position: absolute;
+                    width: 43%;
+                    top: 38%;
+                    left: 48.2%;
+                    opacity: 0%;
+                  "
+                  src="img/nike-overlay.svg"
+                  alt="overlay"
+                />
+                <canvas
+                  id="canvas-main-2"
+                  class="main-overlay-canvas main-body-display-img-overlay-transition"
+                ></canvas>
+              </div>
             </div>
             <div
-              class="main-body-display-selected-img-icon"
-              id="main-body-display-selected-img-icon-png"
-            >
+              id="main-body-display-left"
+              class="main-body-display-move"
+            ></div>
+            <div
+              id="main-body-display-right"
+              class="main-body-display-move"
+            ></div>
+            <div class="main-body-display-selected-img-icon-container">
               <div
-                class="main-body-display-selected-img-icon-overlay"
-                id="main-body-display-selected-img-icon-png-overlay"
-              ></div>
+                class="main-body-display-selected-img-icon main-body-display-selected-img-icon-selected"
+                id="main-body-display-selected-img-icon-default"
+              >
+                <div
+                  class="main-body-display-selected-img-icon-overlay main-body-display-selected-img-icon-overlay-selected"
+                  id="main-body-display-selected-img-icon-default-overlay"
+                ></div>
+              </div>
+              <div
+                class="main-body-display-selected-img-icon"
+                id="main-body-display-selected-img-icon-png"
+              >
+                <div
+                  class="main-body-display-selected-img-icon-overlay"
+                  id="main-body-display-selected-img-icon-png-overlay"
+                ></div>
+              </div>
+              <div
+                class="main-body-display-selected-img-icon"
+                id="main-body-display-selected-img-icon-svg"
+              >
+                <div
+                  class="main-body-display-selected-img-icon-overlay"
+                  id="main-body-display-selected-img-icon-svg-overlay"
+                ></div>
+              </div>
+              <div
+                class="main-body-display-selected-img-icon"
+                id="main-body-display-selected-img-icon-bezier"
+              >
+                <div
+                  class="main-body-display-selected-img-icon-overlay"
+                  id="main-body-display-selected-img-icon-bezier-overlay"
+                ></div>
+              </div>
             </div>
             <div
-              class="main-body-display-selected-img-icon"
-              id="main-body-display-selected-img-icon-svg"
+              class="main-body-display-selected-img-title"
+              id="main-body-display-selected-img-title"
             >
-              <div
-                class="main-body-display-selected-img-icon-overlay"
-                id="main-body-display-selected-img-icon-svg-overlay"
-              ></div>
+              Default
             </div>
-            <div
-              class="main-body-display-selected-img-icon"
-              id="main-body-display-selected-img-icon-bezier"
-            >
-              <div
-                class="main-body-display-selected-img-icon-overlay"
-                id="main-body-display-selected-img-icon-bezier-overlay"
-              ></div>
-            </div>
-          </div>
-          <div
-            class="main-body-display-selected-img-title"
-            id="main-body-display-selected-img-title"
-          >
-            Default
           </div>
         </div>
-      </div>
-      <!--<div
+        <!--<div
         class="main-body-container-display"
         id="main-body-container-display-temp"
         style="position: absolute"
       ></div>-->
-      <div class="main-body-container main-body-gallery-container body-window">
-        <div class="main-body-container-gallery">
-          <div
-            class="main-body-container-gallery-row main-body-container-gallery-row-top"
-          >
+        <div
+          class="main-body-container main-body-gallery-container body-window"
+        >
+          <div class="main-body-container-gallery">
             <div
-              class="main-body-container-gallery-item main-body-container-gallery-tl"
+              class="main-body-container-gallery-row main-body-container-gallery-row-top"
             >
-              <img src="img/nike-shoe2.webp" alt="image" />
+              <div
+                class="main-body-container-gallery-item main-body-container-gallery-tl"
+              >
+                <img src="img/nike-shoe2.webp" alt="image" />
+              </div>
+              <div
+                class="main-body-container-gallery-item main-body-container-gallery-tr"
+              >
+                <img src="img/nike-shoe1.webp" alt="image" />
+              </div>
             </div>
             <div
-              class="main-body-container-gallery-item main-body-container-gallery-tr"
+              class="main-body-container-gallery-row main-body-container-gallery-row-bot"
             >
-              <img src="img/nike-shoe1.webp" alt="image" />
+              <div
+                class="main-body-container-gallery-item main-body-container-gallery-bl"
+              >
+                <img src="img/nike-shoe4.webp" alt="image" />
+              </div>
+              <div
+                class="main-body-container-gallery-item main-body-container-gallery-br"
+              >
+                <img src="img/nike-shoe3.webp" alt="image" />
+              </div>
             </div>
           </div>
-          <div
-            class="main-body-container-gallery-row main-body-container-gallery-row-bot"
-          >
-            <div
-              class="main-body-container-gallery-item main-body-container-gallery-bl"
-            >
-              <img src="img/nike-shoe4.webp" alt="image" />
+        </div>
+        <!--<h1 class="body-title">Nike Recolors</h1>-->
+        <div class="main-body body-window">
+          <div class="main-body-container">
+            <div class="main-body-container main-body-container-box">
+              <div class="main-body-container-left">
+                <div class="main-body-container-textbox">
+                  <div class="main-body-container-left-text">
+                    <h1>PNG version</h1>
+                    Portable Network Graphics is a raster-graphics file format
+                    that supports lossless data compression.
+                  </div>
+                </div>
+              </div>
+              <div class="main-body-container-right">
+                <div class="main-body-container-right-imgcon">
+                  <img
+                    class="half-width-img"
+                    src="img/nike-shoe-yello-white-darkened3.png"
+                    alt="image"
+                  />
+                  <img
+                    class="half-width-img-overlay"
+                    src="img/nike-overlay.png"
+                    alt="overlay"
+                  />
+                </div>
+              </div>
             </div>
+          </div>
+          <div class="main-body-container">
             <div
-              class="main-body-container-gallery-item main-body-container-gallery-br"
+              class="main-body-container main-body-container-box"
+              id="main-body-sides-container"
             >
-              <img src="img/nike-shoe3.webp" alt="image" />
+              <div
+                class="main-body-container-left"
+                id="main-body-container-side-svg-img"
+              >
+                <div class="main-body-container-right-imgcon">
+                  <img
+                    class="half-width-img"
+                    src="img/nike-shoe-blue-white2.png"
+                    alt="image"
+                  />
+                  <img
+                    class="half-width-img-overlay-svg"
+                    src="img/nike-overlay.svg"
+                    alt="overlay"
+                  />
+                </div>
+              </div>
+              <div
+                class="main-body-container-right"
+                id="main-body-container-side-svg-text"
+              >
+                <div class="main-body-container-textbox">
+                  <div class="main-body-container-right-text">
+                    <h1>SVG version</h1>
+                    Scalable Vector Graphics is an XML-based vector image format
+                    for defining two-dimensional graphics, having support for
+                    interactivity and animation.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="main-body-container">
+            <div class="main-body-container main-body-container-box">
+              <div class="main-body-container-left">
+                <div class="main-body-container-textbox">
+                  <div class="main-body-container-left-text">
+                    <h1>Bezier version</h1>
+                    A Bézier curve is a parametric curve used in computer
+                    graphics and related fields.
+                  </div>
+                </div>
+              </div>
+              <div class="main-body-container-right">
+                <div class="main-body-container-right-imgcon">
+                  <img
+                    id="half-width-img-bezier"
+                    class="half-width-img"
+                    src="img/nike-shoe-orange.png"
+                    alt="image"
+                  />
+                  <canvas
+                    id="canvas"
+                    class="half-width-img-overlay-canvas"
+                  ></canvas>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <!--<h1 class="body-title">Nike Recolors</h1>-->
-      <div class="main-body body-window">
-        <div class="main-body-container">
-          <div class="main-body-container main-body-container-box">
-            <div class="main-body-container-left">
-              <div class="main-body-container-textbox">
-                <div class="main-body-container-left-text">
-                  <h1>PNG version</h1>
-                  Portable Network Graphics is a raster-graphics file format
-                  that supports lossless data compression.
-                </div>
-              </div>
-            </div>
-            <div class="main-body-container-right">
-              <div class="main-body-container-right-imgcon">
-                <img
-                  class="half-width-img"
-                  src="img/nike-shoe-yello-white-darkened3.png"
-                  alt="image"
-                />
-                <img
-                  class="half-width-img-overlay"
-                  src="img/nike-overlay.png"
-                  alt="overlay"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="main-body-container">
-          <div
-            class="main-body-container main-body-container-box"
-            id="main-body-sides-container"
-          >
-            <div
-              class="main-body-container-left"
-              id="main-body-container-side-svg-img"
-            >
-              <div class="main-body-container-right-imgcon">
-                <img
-                  class="half-width-img"
-                  src="img/nike-shoe-blue-white2.png"
-                  alt="image"
-                />
-                <img
-                  class="half-width-img-overlay-svg"
-                  src="img/nike-overlay.svg"
-                  alt="overlay"
-                />
-              </div>
-            </div>
-            <div
-              class="main-body-container-right"
-              id="main-body-container-side-svg-text"
-            >
-              <div class="main-body-container-textbox">
-                <div class="main-body-container-right-text">
-                  <h1>SVG version</h1>
-                  Scalable Vector Graphics is an XML-based vector image format
-                  for defining two-dimensional graphics, having support for
-                  interactivity and animation.
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="main-body-container">
-          <div class="main-body-container main-body-container-box">
-            <div class="main-body-container-left">
-              <div class="main-body-container-textbox">
-                <div class="main-body-container-left-text">
-                  <h1>Bezier version</h1>
-                  A Bézier curve is a parametric curve used in computer graphics
-                  and related fields.
-                </div>
-              </div>
-            </div>
-            <div class="main-body-container-right">
-              <div class="main-body-container-right-imgcon">
-                <img
-                  id="half-width-img-bezier"
-                  class="half-width-img"
-                  src="img/nike-shoe-orange.png"
-                  alt="image"
-                />
-                <canvas
-                  id="canvas"
-                  class="half-width-img-overlay-canvas"
-                ></canvas>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <div class="footer"></div>
     </div>
     <script src="js/script.js"></script>
   </body>

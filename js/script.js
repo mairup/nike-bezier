@@ -288,8 +288,11 @@ function changeShownContainerWindowCustom(setTo) {
 }
 
 function resizeBody() {
-  document.getElementById("main-body").style.height =
+  let currentBodyContainerHeight =
     Math.floor(bodyCons[sCon].clientHeight + 120) + "px";
+
+  document.getElementById("main-body").style.height =
+    currentBodyContainerHeight;
 }
 
 function unselectButtons() {
