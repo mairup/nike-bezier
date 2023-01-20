@@ -81,14 +81,14 @@ function resizeCanvas() {
 
   let scale =
     document.getElementById("main-body-display-img").offsetWidth / 4.3;
-  scale = Math.floor(scale);
+  let scale2 =
+    document.getElementById("half-width-img-bezier").offsetWidth / 4.3;
+  if (scale > 150) scale -= 1.5; // fix for bad sizing at high scale
   document.getElementById("canvas-main").style.transform =
     "scale(" + scale + "%)";
   document.getElementById("canvas-main-2").style.transform =
     "scale(" + scale + "%)";
-  let scale2 =
-    document.getElementById("half-width-img-bezier").offsetWidth / 4.3;
-  scale2 = Math.floor(scale2);
+
   document.getElementById("canvas").style.transform = "scale(" + scale2 + "%)";
 }
 
@@ -283,10 +283,6 @@ function removeSelectedImgIcon() {
   while (array2.length > 0)
     array2[0].classList.remove("main-body-display-selected-img-icon-selected");
 }
-/*
-document.addEventListener("click", () => {
-  changeShownContainerWindow(true);
-});*/
 
 //   unused currently, leaving it in just in case
 function changeShownContainerWindow(side) {
@@ -303,17 +299,19 @@ function changeShownContainerWindowCustom(setTo) {
   bodyCons[setTo].style.opacity = 1;
   sCon = setTo;
 
-  let animatedNodesLeft = document.getElementsByClassName("animateLeftToRight");
+  let animatedNodesLeft =
+    bodyCons[setTo].getElementsByClassName("animateLeftToRight");
   let animatedNodesRight =
-    document.getElementsByClassName("animateRightToLeft");
+    bodyCons[setTo].getElementsByClassName("animateRightToLeft");
+
   for (i = 0; i < animatedNodesLeft.length; i++) {
-    animatedNodesLeft[i].style.animation = "noAnimation";
+    animatedNodesLeft[i].style.animation = "";
     void animatedNodesLeft[i].offsetWidth;
     animatedNodesLeft[i].style.animation = "flyInAnimationLeft 0.3s ease";
   }
 
   for (i = 0; i < animatedNodesRight.length; i++) {
-    animatedNodesRight[i].style.animation = "noAnimation";
+    animatedNodesRight[i].style.animation = "";
     void animatedNodesRight[i].offsetWidth;
     animatedNodesRight[i].style.animation = "flyInAnimationRight 0.3s ease";
   }

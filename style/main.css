@@ -549,8 +549,10 @@ body {
 @keyframes flyInAnimationRight {
   0% {
     transform: translateX(100px);
+    opacity: 0;
   }
   100% {
+    opacity: 1;
     transform: translateX(0);
   }
 }
