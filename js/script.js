@@ -27,6 +27,15 @@ function swapHalfWidthImgLeft() {
     .cloneNode(true);
   document.getElementById("main-body-container-side-svg-img").remove();
   document.getElementById("main-body-sides-container").append(tmp);
+
+  let tmp2 = document.getElementById("main-body-container-side-svg-text");
+  tmp.classList.remove("animateRightToLeft");
+  tmp2.classList.remove("animateLeftToRight");
+  tmp2.classList.remove("animateRightToLeft");
+  tmp.classList.remove("animateLeftToRight");
+
+  tmp.classList.add("animateRightToLeft");
+  tmp2.classList.add("animateLeftToRight");
 }
 
 function swapHalfWidthImgRight() {
@@ -35,6 +44,16 @@ function swapHalfWidthImgRight() {
     .cloneNode(true);
   document.getElementById("main-body-container-side-svg-text").remove();
   document.getElementById("main-body-sides-container").append(tmp);
+
+  let tmp2 = document.getElementById("main-body-container-side-svg-img");
+
+  tmp.classList.remove("animateRightToLeft");
+  tmp2.classList.remove("animateLeftToRight");
+  tmp2.classList.remove("animateRightToLeft");
+  tmp.classList.remove("animateLeftToRight");
+
+  tmp.classList.add("animateRightToLeft");
+  tmp2.classList.add("animateLeftToRight");
 }
 
 function resizeCanvas() {
@@ -283,6 +302,22 @@ function changeShownContainerWindowCustom(setTo) {
   bodyCons[sCon].style.opacity = 0;
   bodyCons[setTo].style.opacity = 1;
   sCon = setTo;
+
+  let animatedNodesLeft = document.getElementsByClassName("animateLeftToRight");
+  let animatedNodesRight =
+    document.getElementsByClassName("animateRightToLeft");
+  for (i = 0; i < animatedNodesLeft.length; i++) {
+    animatedNodesLeft[i].style.animation = "noAnimation";
+    void animatedNodesLeft[i].offsetWidth;
+    animatedNodesLeft[i].style.animation = "flyInAnimationLeft 0.3s ease";
+  }
+
+  for (i = 0; i < animatedNodesRight.length; i++) {
+    animatedNodesRight[i].style.animation = "noAnimation";
+    void animatedNodesRight[i].offsetWidth;
+    animatedNodesRight[i].style.animation = "flyInAnimationRight 0.3s ease";
+  }
+
   selectButton();
   resizeBody();
 }

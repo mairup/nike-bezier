@@ -536,3 +536,21 @@ body {
     font-size: 13px;
   }
 }
+
+@keyframes flyInAnimationLeft {
+  0% {
+    transform: translateX(-100px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes flyInAnimationRight {
+  0% {
+    transform: translateX(100px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
