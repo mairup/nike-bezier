@@ -318,6 +318,7 @@ function changeShownContainerWindowCustom(setTo) {
 
   selectButton();
   resizeBody();
+  window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
 function resizeBody() {
