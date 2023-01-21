@@ -2,9 +2,11 @@ let cdi = 0; // current display img
 let timeoutTime = 1000;
 const bodyCons = document.getElementsByClassName("body-window");
 let sCon = 2; // shown container (?)
+let mainDisplay = document.getElementById("main-body-display-img-main");
+let tempDisplay = document.getElementById("main-body-display-img-temp");
 
 let cdiTimeout = setTimeout(() => {
-  changeDisplayImage();
+  moveDisplayContainer(1);
 }, timeoutTime);
 
 window.addEventListener("load", () => {
@@ -63,21 +65,14 @@ function resizeCanvas() {
   const mainCanvas = document.getElementById("canvas-main");
   const mainCtx = mainCanvas.getContext("2d");
 
-  const mainCanvas2 = document.getElementById("canvas-main-2");
-  const mainCtx2 = mainCanvas2.getContext("2d");
-
   canvas.height = 224;
   canvas.width = 432;
 
   mainCanvas.height = canvas.height;
   mainCanvas.width = canvas.width;
 
-  mainCanvas2.height = mainCanvas.height;
-  mainCanvas2.width = mainCanvas.width;
-
   drawShape(ctx, -78, -223);
   drawShape(mainCtx, -78, -223);
-  drawShape(mainCtx2, -78, -223);
 
   let scale =
     document.getElementById("main-body-display-img").offsetWidth / 4.3;
@@ -86,184 +81,175 @@ function resizeCanvas() {
   if (scale > 150) scale -= 1.5; // fix for bad sizing at high scale
   document.getElementById("canvas-main").style.transform =
     "scale(" + scale + "%)";
-  document.getElementById("canvas-main-2").style.transform =
-    "scale(" + scale + "%)";
 
   document.getElementById("canvas").style.transform = "scale(" + scale2 + "%)";
 }
 
-function setDefault(s) {
+function setDefault() {
   cdi = 0;
-  document.getElementById("main-body-display-img-background" + s).src =
+  document.getElementById("main-body-display-img-background").src =
     "img/nike-shoe.png";
+  document.getElementById("main-body-display-img-overlay-png").style.opacity =
+    "0%";
   document.getElementById(
-    "main-body-display-img-overlay-png" + s
-  ).style.opacity = "0%";
-  document.getElementById(
-    "main-body-display-img-overlay-svg" + s
+    "main-body-display-img-overlay-svg"
   ).style.opacity = 0;
-  document.getElementById("canvas-main" + s).style.opacity = 0;
+  document.getElementById("canvas-main").style.opacity = 0;
 
-  if (s == "") {
-    document.getElementById("main-body-display-selected-img-title").innerText =
-      "Default";
+  document.getElementById("main-body-display-selected-img-title").innerText =
+    "Default";
 
-    removeSelectedImgIcon();
-    document
-      .getElementById("main-body-display-selected-img-icon-default")
-      .classList.add("main-body-display-selected-img-icon-selected");
+  removeSelectedImgIcon();
+  document
+    .getElementById("main-body-display-selected-img-icon-default")
+    .classList.add("main-body-display-selected-img-icon-selected");
 
-    document
-      .getElementById("main-body-display-selected-img-icon-default-overlay")
-      .classList.add("main-body-display-selected-img-icon-overlay-selected");
+  document
+    .getElementById("main-body-display-selected-img-icon-default-overlay")
+    .classList.add("main-body-display-selected-img-icon-overlay-selected");
 
-    timeoutHandler();
-  }
+  timeoutHandler();
 }
 
-function setPNG(s) {
-  setDefault(s);
+function setPNG() {
+  setDefault();
   cdi = 1;
-  document.getElementById("main-body-display-img-background" + s).src =
+  document.getElementById("main-body-display-img-background").src =
     "img/nike-shoe-yello-white-darkened3.png";
-  document.getElementById(
-    "main-body-display-img-overlay-png" + s
-  ).style.opacity = "70%";
+  document.getElementById("main-body-display-img-overlay-png").style.opacity =
+    "70%";
 
-  if (s == "") {
-    document.getElementById(
-      "main-body-display-selected-img-title" + s
-    ).innerText = "PNG Version";
+  document.getElementById("main-body-display-selected-img-title").innerText =
+    "PNG Version";
 
-    removeSelectedImgIcon();
-    document
-      .getElementById("main-body-display-selected-img-icon-png" + s)
-      .classList.add("main-body-display-selected-img-icon-selected");
+  removeSelectedImgIcon();
+  document
+    .getElementById("main-body-display-selected-img-icon-png")
+    .classList.add("main-body-display-selected-img-icon-selected");
 
-    document
-      .getElementById("main-body-display-selected-img-icon-png-overlay" + s)
-      .classList.add("main-body-display-selected-img-icon-overlay-selected");
-    timeoutHandler();
-  }
+  document
+    .getElementById("main-body-display-selected-img-icon-png-overlay")
+    .classList.add("main-body-display-selected-img-icon-overlay-selected");
+  timeoutHandler();
 }
 
-function setSVG(s) {
-  setDefault(s);
+function setSVG() {
+  setDefault();
   cdi = 2;
-  document.getElementById("main-body-display-img-background" + s).src =
+  document.getElementById("main-body-display-img-background").src =
     "img/nike-shoe-blue-white2.png";
-  document.getElementById(
-    "main-body-display-img-overlay-svg" + s
-  ).style.opacity = "70%";
+  document.getElementById("main-body-display-img-overlay-svg").style.opacity =
+    "70%";
 
-  if (s == "") {
-    document.getElementById(
-      "main-body-display-selected-img-title" + s
-    ).innerText = "SVG Version";
+  document.getElementById("main-body-display-selected-img-title").innerText =
+    "SVG Version";
 
-    removeSelectedImgIcon();
-    document
-      .getElementById("main-body-display-selected-img-icon-svg" + s)
-      .classList.add("main-body-display-selected-img-icon-selected");
+  removeSelectedImgIcon();
+  document
+    .getElementById("main-body-display-selected-img-icon-svg")
+    .classList.add("main-body-display-selected-img-icon-selected");
 
-    document
-      .getElementById("main-body-display-selected-img-icon-svg-overlay" + s)
-      .classList.add("main-body-display-selected-img-icon-overlay-selected");
-    timeoutHandler();
-  }
+  document
+    .getElementById("main-body-display-selected-img-icon-svg-overlay")
+    .classList.add("main-body-display-selected-img-icon-overlay-selected");
+  timeoutHandler();
 }
 
-function setBezier(s) {
-  setDefault(s);
-  cdi = -1;
-  document.getElementById("canvas-main" + s).style.opacity = 100;
+function setBezier() {
+  setDefault();
+  cdi = 3;
+  document.getElementById("canvas-main").style.opacity = 100;
 
-  if (s == "") {
-    document.getElementById(
-      "main-body-display-selected-img-title" + s
-    ).innerText = "Bezier Version";
+  document.getElementById("main-body-display-selected-img-title").innerText =
+    "Bezier Version";
 
-    removeSelectedImgIcon();
-    document
-      .getElementById("main-body-display-selected-img-icon-bezier" + s)
-      .classList.add("main-body-display-selected-img-icon-selected");
+  removeSelectedImgIcon();
+  document
+    .getElementById("main-body-display-selected-img-icon-bezier")
+    .classList.add("main-body-display-selected-img-icon-selected");
 
-    document
-      .getElementById("main-body-display-selected-img-icon-bezier-overlay" + s)
-      .classList.add("main-body-display-selected-img-icon-overlay-selected");
-    timeoutHandler();
-  }
+  document
+    .getElementById("main-body-display-selected-img-icon-bezier-overlay")
+    .classList.add("main-body-display-selected-img-icon-overlay-selected");
+  timeoutHandler();
 }
 
 function changeDisplayImage() {
   switch (cdi) {
     case 0:
-      setDefault("");
+      setDefault();
       break;
     case 1:
-      setPNG("");
+      setPNG();
       break;
     case 2:
-      setSVG("");
+      setSVG();
       break;
     case 3:
-      setBezier("");
+      setBezier();
       break;
   }
 }
 
-function displayImageSwap() {
-  /*if (imgNum > cdi) {
-    console.log("swap right");
-  } else if (imgNum < cdi) {
-    console.log("swap left");
-  }*/
+function moveDisplayContainer(imgNum) {
+  let side;
+  if (imgNum > cdi) side = 100;
+  else if (imgNum < cdi) side = -100;
+  else side = 0;
 
-  let temp = document.getElementById("main-body-container-display-temp");
-  let main = document.getElementById("main-body-container-display");
-
-  displayImageSwapMove(main, "right");
+  cdi = imgNum;
+  displayImageSwap(side);
 }
 
-function displayImageSwapMove(item, side) {
-  if (side == "center") {
-    item.style;
-  } else {
-    if (side == "left") side = "-";
-    side = "";
-    item.style.transform = "translateX(" + side + "10%)";
-    item.style.transition = "";
-  }
-}
+function displayImageSwap(side) {
+  tmp = mainDisplay.cloneNode(true);
+  tmp.style.position = "relative";
 
-function moveDisplayContainer() {
-  let temp = document.getElementById("main-body-display-img-temp");
-  let main = document.getElementById("main-body-display-img-main");
-  let clone = document
-    .getElementById("main-body-display-img-items")
-    .cloneNode();
+  tempDisplay.innerHTML = "";
+  tempDisplay.style.transition = "transform 0s";
+  tempDisplay.style.transform = "translateX(" + side + "%)";
 
-  temp.append(clone);
+  mainDisplay.style.transition = "transform 0.3s ease";
+  tempDisplay.style.transform = "translateX(0)";
 
-  /*
-  if (main.childElementCount > 0) {
-    // if elements are in main
+  tempDisplay.appendChild(tmp);
 
-    temp.append(clone);
-    console.log("a");
-  } else {
-    // if elements are in temp
+  for (const element of tempDisplay.querySelectorAll("div, img, canvas, svg"))
+    element.id += "-temp";
 
-    console.log("b");
-    main.append(clone);
-  }*/
+  const tempCanvas = tempDisplay.getElementsByTagName("canvas")[0];
+  const tempCtx = tempCanvas.getContext("2d");
+
+  tempCanvas.height = 224;
+  tempCanvas.width = 432;
+
+  drawShape(tempCtx, -78, -223);
+
+  mainDisplay.style.left = (side / 100) * mainDisplay.offsetWidth + "px";
+
+  changeDisplayImage();
+
+  tempDisplay.style.transition = "transform 0.3s ease";
+  mainDisplay.style.transition = "transform 0.3s ease";
+  mainDisplay.style.transform = "translateX(" + -1 * side + "%)";
+  side *= -1;
+  tempDisplay.style.transform = "translateX(" + side + "%)";
+  setTimeout(() => {
+    mainDisplay.style.transition = "transform 0s";
+    mainDisplay.style.left = 0;
+    mainDisplay.style.transform = "translateX(0)";
+  }, 300);
 }
 
 function timeoutHandler() {
   if (cdiTimeout != null) clearTimeout(cdiTimeout);
   cdiTimeout = setTimeout(() => {
-    cdi++;
-    changeDisplayImage();
+    let imgNum = cdi;
+    if (imgNum == 3) {
+      imgNum = 0;
+      cdi = -1;
+    } else imgNum++;
+    moveDisplayContainer(imgNum);
   }, timeoutTime);
 }
 
@@ -307,13 +293,13 @@ function changeShownContainerWindowCustom(setTo) {
   for (i = 0; i < animatedNodesLeft.length; i++) {
     animatedNodesLeft[i].style.animation = "";
     void animatedNodesLeft[i].offsetWidth;
-    animatedNodesLeft[i].style.animation = "flyInAnimationLeft 0.3s ease";
+    animatedNodesLeft[i].style.animation = "flyInAnimationLeft 0.5s ease";
   }
 
   for (i = 0; i < animatedNodesRight.length; i++) {
     animatedNodesRight[i].style.animation = "";
     void animatedNodesRight[i].offsetWidth;
-    animatedNodesRight[i].style.animation = "flyInAnimationRight 0.3s ease";
+    animatedNodesRight[i].style.animation = "flyInAnimationRight 0.5s ease";
   }
 
   selectButton();

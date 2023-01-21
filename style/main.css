@@ -122,16 +122,11 @@ body {
 }
 
 .body-title {
-  margin: 60px 0 0;
-  color: rgb(228, 228, 228);
+  color: rgb(78, 78, 78);
   font-size: 50px;
-  width: 80%;
-  max-width: 1500px;
-  text-align: center;
-  display: flex;
-  flex-flow: row;
-  justify-content: center;
+  text-align: left;
   font-weight: 500;
+  padding: 20px 30px;
 }
 
 #main-body-title {
@@ -194,15 +189,11 @@ body {
   position: relative;
   overflow: hidden;
   border-radius: 30px;
-}
-
-#main-body-display-img-background {
-  transition: opacity 0.5s;
+  background-color: rgb(228, 228, 228);
 }
 
 #main-body-display-img img {
   width: 100%;
-  border-radius: 30px;
   position: relative;
 }
 
@@ -211,10 +202,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.main-body-display-img-overlay-transition {
-  transition: opacity 0.5s;
+  transition: translateX 0.3s ease;
 }
 
 .main-body-display-move {
@@ -223,7 +211,6 @@ body {
   background-color: rgba(102, 102, 102, 0.329);
   position: absolute;
   opacity: 0;
-  transition: opacity 0.2s ease;
 }
 
 #main-body-display-left {
@@ -537,8 +524,7 @@ body {
   .main-body-container-gallery-item {
     border-radius: 20px;
   }
-  #main-body-display-img,
-  #main-body-display-img img {
+  #main-body-display-img {
     border-radius: 20px;
   }
   #main-body-display-img {
@@ -561,20 +547,23 @@ body {
   .main-body-container-left-text {
     font-size: 13px;
   }
+  .main-body-display-selected-img-icon-container {
+    width: 100px;
+  }
   .main-body-display-selected-img-icon,
   .main-body-display-selected-img-icon-overlay {
     width: 6px;
     height: 6px;
   }
   .main-body-display-selected-img-title {
-    font-size: 15px;
+    font-size: 12px;
     padding-top: 15px;
   }
 }
 
 @keyframes flyInAnimationLeft {
   0% {
-    transform: translateX(-100px);
+    transform: translateX(-150px);
   }
   100% {
     transform: translateX(0);
@@ -583,7 +572,7 @@ body {
 
 @keyframes flyInAnimationRight {
   0% {
-    transform: translateX(100px);
+    transform: translateX(150px);
     opacity: 0;
   }
   100% {

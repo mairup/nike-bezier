@@ -67,15 +67,25 @@
           class="body-window main-body-container-display"
           style="position: absolute"
         >
-          <div class="main-body-container-control-box animateRightToLeft"></div>
+          <div class="main-body-container-control-box animateRightToLeft">
+            <div class="main-body-container-control-box-title body-title">
+              Nike Air Force
+            </div>
+          </div>
 
           <div
             id="main-body-display-img"
             class="main-body-display-img animateLeftToRight"
           >
             <div
+              id="main-body-display-img-temp"
+              class="main-body-display-img-swapper"
+              style="position: absolute; border-radius: 0"
+            ></div>
+            <div
               id="main-body-display-img-main"
               class="main-body-display-img-swapper"
+              style="position: relative; border-radius: 0"
             >
               <div
                 id="main-body-display-img-items"
@@ -138,43 +148,6 @@
                 </svg>
                 <canvas
                   id="canvas-main"
-                  class="main-overlay-canvas main-body-display-img-overlay-transition"
-                ></canvas>
-              </div>
-            </div>
-            <div
-              id="main-body-display-img-temp"
-              class="main-body-display-img-swapper"
-              style="position: absolute; opacity: 0"
-            >
-              <div
-                id="main-body-display-img-items-2"
-                class="main-body-display-img-swapper"
-              >
-                <img
-                  id="main-body-display-img-background-2"
-                  src="img/nike-shoe.png"
-                  alt="display photo"
-                />
-                <div
-                  class="main-body-display-img-overlay main-body-display-img-overlay-transition"
-                  id="main-body-display-img-overlay-png-2"
-                ></div>
-                <img
-                  id="main-body-display-img-overlay-svg-2"
-                  class="half-width-img-overlay-svg main-body-display-img-overlay-transition"
-                  style="
-                    position: absolute;
-                    width: 43%;
-                    top: 38%;
-                    left: 48.2%;
-                    opacity: 0%;
-                  "
-                  src="img/nike-overlay.svg"
-                  alt="overlay"
-                />
-                <canvas
-                  id="canvas-main-2"
                   class="main-overlay-canvas main-body-display-img-overlay-transition"
                 ></canvas>
               </div>
