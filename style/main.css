@@ -236,7 +236,7 @@ body {
   width: 100%;
 }
 
-#main-body-display-img-overlay-png {
+.main-body-display-img-overlay-png {
   background: url("../img/nike-overlay.png");
   background-size: contain;
   opacity: 0%;
