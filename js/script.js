@@ -9,6 +9,8 @@ let cdiTimeout = setTimeout(() => {
   moveDisplayContainer(1);
 }, timeoutTime);
 
+let displayImageSwapTimeout;
+
 window.addEventListener("load", () => {
   if (window.innerWidth <= 1000) swapHalfWidthImgLeft();
   else swapHalfWidthImgRight();
@@ -210,6 +212,11 @@ function moveDisplayContainer(imgNum) {
 }
 
 function displayImageSwap(side) {
+  if (clearTimeout != 0) clearTimeout(displayImageSwapTimeout);
+  mainDisplay.style.transition = "transform 0s";
+  mainDisplay.style.left = 0;
+  mainDisplay.style.transform = "translateX(0)";
+
   tmp = mainDisplay.cloneNode(true);
   tmp.style.position = "relative";
 
@@ -240,7 +247,7 @@ function displayImageSwap(side) {
   mainDisplay.style.transform = "translateX(" + -1 * side + "%)";
   side *= -1;
   tempDisplay.style.transform = "translateX(" + side + "%)";
-  setTimeout(() => {
+  displayImageSwapTimeout = setTimeout(() => {
     mainDisplay.style.transition = "transform 0s";
     mainDisplay.style.left = 0;
     mainDisplay.style.transform = "translateX(0)";
