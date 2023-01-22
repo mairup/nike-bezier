@@ -294,6 +294,7 @@ function changeShownContainerWindow(side) {
 }
 
 function changeShownContainerWindowCustom(setTo) {
+  if (sCon == setTo) return;
   bodyCons[sCon].style.opacity = 0;
   bodyCons[setTo].style.opacity = 1;
   sCon = setTo;
