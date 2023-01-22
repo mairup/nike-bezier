@@ -1,5 +1,5 @@
 let cdi = 0; // current display img
-let timeoutTime = 1000;
+const timeoutTime = 5000;
 const bodyCons = document.getElementsByClassName("body-window");
 let sCon = 2; // shown container (?)
 let mainDisplay = document.getElementById("main-body-display-img-main");
@@ -197,6 +197,14 @@ function moveDisplayContainer(imgNum) {
   else if (imgNum < cdi) side = -100;
   else side = 0;
 
+  if (imgNum < 0) {
+    imgNum = 3;
+    side = -100;
+  } else if (imgNum > 3) {
+    imgNum = 0;
+    side = 100;
+  }
+
   cdi = imgNum;
   displayImageSwap(side);
 }
@@ -207,9 +215,7 @@ function displayImageSwap(side) {
 
   tempDisplay.innerHTML = "";
   tempDisplay.style.transition = "transform 0s";
-  tempDisplay.style.transform = "translateX(" + side + "%)";
 
-  mainDisplay.style.transition = "transform 0.3s ease";
   tempDisplay.style.transform = "translateX(0)";
 
   tempDisplay.appendChild(tmp);

@@ -50,29 +50,27 @@
         </div>
       </div>
       <div class="main-body" id="main-body">
-        <!--<div class="body-title" id="main-body-title">
-        <div class="main-body-title-title">Nike Air Force 1</div>
-        <div class="main-body-title-buy-container">
-          <div
-            class="main-body-title-buy-button"
-            title="Link to official nike website"
-          >
-            <h6>Buy</h6>
-          </div>
-        </div>
-      </div>
-    -->
         <div
           id="main-body-container-display"
           class="body-window main-body-container-display"
           style="position: absolute"
         >
           <div class="main-body-container-control-box animateRightToLeft">
-            <div class="main-body-container-control-box-title body-title">
-              Nike Air Force
+            <div class="main-body-container-control-box-row">
+              <div class="body-title" id="main-body-title">
+                <div class="main-body-title-title">Nike Air Force 1</div>
+                <div class="main-body-title-buy-container" onclick="window.open('https://www.nike.com/si/t/air-force-1-07-shoes-GjGXSP/CW2288-111');">
+                  <div
+                    class="main-body-title-buy-button"
+                    title="Link to official nike website"
+                  >
+                    <h6>Buy</h6>
+                  </div>
+                </div>
+              </a>
+              </div>
             </div>
           </div>
-
           <div
             id="main-body-display-img"
             class="main-body-display-img animateLeftToRight"
@@ -155,10 +153,12 @@
             <div
               id="main-body-display-left"
               class="main-body-display-move"
+              onclick="moveDisplayContainer(cdi - 1)"
             ></div>
             <div
               id="main-body-display-right"
               class="main-body-display-move"
+              onclick="moveDisplayContainer(cdi + 1)"
             ></div>
             <div class="main-body-display-selected-img-icon-container">
               <div
@@ -206,11 +206,6 @@
             </div>
           </div>
         </div>
-        <!--<div
-        class="main-body-container-display"
-        id="main-body-container-display-temp"
-        style="position: absolute"
-      ></div>-->
         <div
           class="main-body-container main-body-gallery-container body-window"
         >
@@ -245,7 +240,6 @@
             </div>
           </div>
         </div>
-        <!--<h1 class="body-title">Nike Recolors</h1>-->
         <div class="main-body body-window">
           <div class="main-body-container">
             <div class="main-body-container main-body-container-box">
