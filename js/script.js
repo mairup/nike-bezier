@@ -4,6 +4,7 @@ const bodyCons = document.getElementsByClassName("body-window");
 let sCon = 2; // shown container (?)
 let mainDisplay = document.getElementById("main-body-display-img-main");
 let tempDisplay = document.getElementById("main-body-display-img-temp");
+let svgImagePos;
 
 let cdiTimeout = setTimeout(() => {
   moveDisplayContainer(1);
@@ -19,17 +20,16 @@ window.addEventListener("load", () => {
 });
 
 window.addEventListener("resize", () => {
-  if (window.innerWidth <= 1000) swapHalfWidthImgLeft();
-  else swapHalfWidthImgRight();
+  if (window.innerWidth <= 1000 && svgImagePos == "right")
+    swapHalfWidthImgLeft();
+  else if (window.innerWidth > 1000 && svgImagePos == "left")
+    swapHalfWidthImgRight();
   resizeCanvas();
   resizeBody();
 });
 
 function swapHalfWidthImgLeft() {
-  let tmp = document
-    .getElementById("main-body-container-side-svg-img")
-    .cloneNode(true);
-  document.getElementById("main-body-container-side-svg-img").remove();
+  let tmp = document.getElementById("main-body-container-side-svg-img");
   document.getElementById("main-body-sides-container").append(tmp);
 
   let tmp2 = document.getElementById("main-body-container-side-svg-text");
@@ -40,13 +40,12 @@ function swapHalfWidthImgLeft() {
 
   tmp.classList.add("animateRightToLeft");
   tmp2.classList.add("animateLeftToRight");
+
+  svgImagePos = "left";
 }
 
 function swapHalfWidthImgRight() {
-  let tmp = document
-    .getElementById("main-body-container-side-svg-text")
-    .cloneNode(true);
-  document.getElementById("main-body-container-side-svg-text").remove();
+  let tmp = document.getElementById("main-body-container-side-svg-text");
   document.getElementById("main-body-sides-container").append(tmp);
 
   let tmp2 = document.getElementById("main-body-container-side-svg-img");
@@ -58,6 +57,8 @@ function swapHalfWidthImgRight() {
 
   tmp.classList.add("animateRightToLeft");
   tmp2.classList.add("animateLeftToRight");
+
+  svgImagePos = "right";
 }
 
 function resizeCanvas() {
