@@ -43,6 +43,7 @@ body {
   width: 100%;
   display: flex;
   justify-content: right;
+  position: relative;
 }
 
 .main-header-left,
@@ -78,11 +79,8 @@ body {
   min-width: 140px;
   user-select: none;
   gap: 5px;
-}
-
-.header-button:hover {
-  background-color: whitesmoke;
-  border: 1px solid #afd600;
+  z-index: -1;
+  pointer-events: all;
 }
 
 .header-button-selected {
@@ -239,6 +237,35 @@ body {
 
 .main-body-display-move:hover {
   opacity: 0.7;
+}
+
+.main-header-move-menu {
+  height: 100%;
+  width: 5%;
+  position: absolute;
+  user-select: none;
+  caret-color: rgba(0, 0, 0, 0);
+  cursor: pointer;
+  transition: opacity 0.3s;
+  opacity: 0;
+}
+
+#main-header-move-menu-left {
+  left: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(92, 92, 92, 0.9) 8%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+
+#main-header-move-menu-right {
+  right: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 8%,
+    rgba(92, 92, 92, 0.9) 100%
+  );
 }
 
 .main-body-container-left,
