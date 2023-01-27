@@ -504,6 +504,11 @@ body {
   color: inherit;
   font-size: 15px;
   text-decoration: inherit;
+  transition: color 0.3s ease;
+}
+
+.footer-item a:hover {
+  color: white;
 }
 
 .footer-item a::after {
