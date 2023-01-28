@@ -1,5 +1,5 @@
 let cdi = 0; // current display img
-const timeoutTime = 5000;
+const timeoutTime = 3000;
 const bodyCons = document.getElementsByClassName("body-window");
 let sCon = 2; // shown container (?)
 let mainDisplay = document.getElementById("main-body-display-img-main");
@@ -19,6 +19,7 @@ window.addEventListener("load", () => {
   resizeCanvas();
   changeShownContainerWindowCustom(0);
   addHeaderScrollShadow();
+  setDefaultButton();
 });
 
 window.addEventListener("resize", () => {
@@ -115,6 +116,7 @@ function setDefault() {
     .classList.add("main-body-display-selected-img-icon-overlay-selected");
 
   timeoutHandler();
+  setDefaultButton();
 }
 
 function setPNG() {
@@ -137,6 +139,7 @@ function setPNG() {
     .getElementById("main-body-display-selected-img-icon-png-overlay")
     .classList.add("main-body-display-selected-img-icon-overlay-selected");
   timeoutHandler();
+  setPNGButton();
 }
 
 function setSVG() {
@@ -159,6 +162,7 @@ function setSVG() {
     .getElementById("main-body-display-selected-img-icon-svg-overlay")
     .classList.add("main-body-display-selected-img-icon-overlay-selected");
   timeoutHandler();
+  setSVGButton();
 }
 
 function setBezier() {
@@ -178,6 +182,7 @@ function setBezier() {
     .getElementById("main-body-display-selected-img-icon-bezier-overlay")
     .classList.add("main-body-display-selected-img-icon-overlay-selected");
   timeoutHandler();
+  setBezierButton();
 }
 
 function changeDisplayImage() {
@@ -377,6 +382,113 @@ for (const button of document.getElementsByClassName("header-button")) {
     if (document.getElementsByClassName("header-button")[sCon] != button)
       button.classList.remove("header-button-selected");
   });
+}
+
+document
+  .getElementById("main-body-display-left")
+  .addEventListener("click", () => {
+    if (cdiTimeout == null) {
+      moveDisplayContainer(cdi - 1);
+      pauseCdiTimer(true);
+    } else moveDisplayContainer(cdi - 1);
+  });
+
+document
+  .getElementById("main-body-display-right")
+  .addEventListener("click", () => {
+    if (cdiTimeout == null) {
+      moveDisplayContainer(cdi + 1);
+      pauseCdiTimer(true);
+    } else moveDisplayContainer(cdi + 1);
+  });
+
+document.getElementById("pause-timer-button").addEventListener("click", () => {
+  pauseCdiTimer();
+});
+
+document.getElementById("set-default-button").addEventListener("click", () => {
+  setDefaultButton();
+  if (cdiTimeout == null) {
+    moveDisplayContainer(0);
+    pauseCdiTimer(true);
+  } else moveDisplayContainer(0);
+});
+
+function setDefaultButton() {
+  removeClickedControlBoxItems();
+
+  document
+    .getElementById("set-default-button")
+    .classList.add("main-body-container-control-box-item-clicked");
+}
+
+document.getElementById("set-png-button").addEventListener("click", () => {
+  setPNGButton();
+  if (cdiTimeout == null) {
+    moveDisplayContainer(1);
+    pauseCdiTimer(true);
+  } else moveDisplayContainer(1);
+});
+
+function setPNGButton() {
+  removeClickedControlBoxItems();
+
+  document
+    .getElementById("set-png-button")
+    .classList.add("main-body-container-control-box-item-clicked");
+}
+
+document.getElementById("set-svg-button").addEventListener("click", () => {
+  setSVGButton();
+  if (cdiTimeout == null) {
+    moveDisplayContainer(2);
+    pauseCdiTimer(true);
+  } else moveDisplayContainer(2);
+});
+
+function setSVGButton() {
+  removeClickedControlBoxItems();
+
+  document
+    .getElementById("set-svg-button")
+    .classList.add("main-body-container-control-box-item-clicked");
+}
+
+document.getElementById("set-bezier-button").addEventListener("click", () => {
+  setBezierButton();
+  if (cdiTimeout == null) {
+    moveDisplayContainer(3);
+    pauseCdiTimer(true);
+  } else moveDisplayContainer(3);
+});
+
+function setBezierButton() {
+  removeClickedControlBoxItems();
+
+  document
+    .getElementById("set-bezier-button")
+    .classList.add("main-body-container-control-box-item-clicked");
+}
+
+function pauseCdiTimer(b) {
+  if (cdiTimeout == null && b == null) {
+    timeoutHandler();
+    document.getElementById("pause-timer-button").style =
+      'background-image: url("../img/pause-icon.svg")';
+  } else {
+    clearTimeout(cdiTimeout);
+    cdiTimeout = null;
+    document.getElementById("pause-timer-button").style =
+      'background-image: url("../img/play-icon.svg")';
+  }
+}
+
+function removeClickedControlBoxItems() {
+  for (const button of document.getElementsByClassName(
+    "main-body-container-control-box-item"
+  )) {
+    button.classList.remove("main-body-container-control-box-item-clicked");
+  }
 }
 
 function drawShape(ctx, xoff, yoff) {
