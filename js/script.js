@@ -1,11 +1,15 @@
 let cdi = 0; // current display img
-const timeoutTime = 3000;
+const timeoutTime = 2300;
 const bodyCons = document.getElementsByClassName("body-window");
 let sCon = 2; // shown container (?)
 let mainDisplay = document.getElementById("main-body-display-img-main");
 let tempDisplay = document.getElementById("main-body-display-img-temp");
 let svgImagePos;
 let headerRight = document.getElementById("main-header-right");
+const controlRange = document.getElementById("control-box-range");
+const displayImageContainer = document.getElementById(
+  "main-body-display-img-container"
+);
 
 let cdiTimeout = setTimeout(() => {
   moveDisplayContainer(1);
@@ -20,6 +24,7 @@ window.addEventListener("load", () => {
   changeShownContainerWindowCustom(0);
   addHeaderScrollShadow();
   setDefaultButton();
+  controlRange.value = 100;
 });
 
 window.addEventListener("resize", () => {
@@ -490,6 +495,18 @@ function removeClickedControlBoxItems() {
     button.classList.remove("main-body-container-control-box-item-clicked");
   }
 }
+
+controlRange.oninput = function () {
+  var value = ((this.value - this.min) / (this.max - this.min)) * 100;
+  this.style.background =
+    "linear-gradient(to right, #5a5a5a 0%, #5a5a5a " +
+    value +
+    "%, #fff " +
+    value +
+    "%, white 100%)";
+  displayImageContainer.style =
+    "transform: scale(" + controlRange.value / 100 + ")";
+};
 
 function drawShape(ctx, xoff, yoff) {
   ctx.beginPath();

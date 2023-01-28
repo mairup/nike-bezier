@@ -64,9 +64,11 @@
           style="position: absolute"
         >
           <div class="main-body-container-control-box animateRightToLeft">
-            <div class="main-body-container-control-box-row">
-              <div class="body-title" id="main-body-title">
+            <div class="main-body-container-control-box-row body-title">
+              <div class="main-body-container-control-box-row-half">
                 <div class="main-body-title-title">Nike Air Force 1</div>
+              </div>
+              <div class="main-body-container-control-box-row-half">
                 <div
                   class="main-body-title-buy-container"
                   onclick="window.open('https://www.nike.com/si/t/air-force-1-07-shoes-GjGXSP/CW2288-111');"
@@ -103,65 +105,75 @@
                   id="set-bezier-button"
                 ></div>
               </div>
-              <div class="main-body-container-control-box-row-half"></div>
+              <div class="main-body-container-control-box-row-half">
+                <input
+                  type="range"
+                  class="control-box-range"
+                  id="control-box-range"
+                  min="100"
+                  max="300"
+                  value="100"
+                />
+              </div>
             </div>
           </div>
           <div
             id="main-body-display-img"
             class="main-body-display-img animateLeftToRight"
           >
-            <div
-              id="main-body-display-img-temp"
-              class="main-body-display-img-swapper"
-              style="position: absolute; border-radius: 0"
-            ></div>
-            <div
-              id="main-body-display-img-main"
-              class="main-body-display-img-swapper"
-              style="position: relative; border-radius: 0"
-            >
+            <div id="main-body-display-img-container">
               <div
-                id="main-body-display-img-items"
+                id="main-body-display-img-temp"
                 class="main-body-display-img-swapper"
+                style="position: absolute; border-radius: 0"
+              ></div>
+              <div
+                id="main-body-display-img-main"
+                class="main-body-display-img-swapper"
+                style="position: relative; border-radius: 0"
               >
-                <img
-                  id="main-body-display-img-background"
-                  src="img/nike-shoe.png"
-                  alt="display photo"
-                />
                 <div
-                  class="main-body-display-img-overlay main-body-display-img-overlay-transition main-body-display-img-overlay-png"
-                  id="main-body-display-img-overlay-png"
-                ></div>
-                <svg
-                  id="main-body-display-img-overlay-svg"
-                  class="half-width-img-overlay-svg main-body-display-img-overlay-transition"
-                  style="
-                    position: absolute;
-                    width: 43%;
-                    top: 38%;
-                    left: 48.2%;
-                    opacity: 0%;
-                    enable-background: new 0 0 680.1 200.6;
-                  "
-                  version="1.1"
-                  xmlns="http://www.w3.org/2000/svg"
-                  xmlns:xlink="http://www.w3.org/1999/xlink"
-                  x="0px"
-                  y="0px"
-                  viewBox="0 0 680.1 200.6"
-                  xml:space="preserve"
+                  id="main-body-display-img-items"
+                  class="main-body-display-img-swapper"
                 >
-                  <style type="text/css">
-                    .st0 {
-                      fill: #0cecad;
-                    }
-                  </style>
-                  <g>
+                  <img
+                    id="main-body-display-img-background"
+                    src="img/nike-shoe.png"
+                    alt="display photo"
+                  />
+                  <div
+                    class="main-body-display-img-overlay main-body-display-img-overlay-transition main-body-display-img-overlay-png"
+                    id="main-body-display-img-overlay-png"
+                  ></div>
+                  <svg
+                    id="main-body-display-img-overlay-svg"
+                    class="half-width-img-overlay-svg main-body-display-img-overlay-transition"
+                    style="
+                      position: absolute;
+                      width: 43%;
+                      top: 38%;
+                      left: 48.2%;
+                      opacity: 0%;
+                      enable-background: new 0 0 680.1 200.6;
+                    "
+                    version="1.1"
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    x="0px"
+                    y="0px"
+                    viewBox="0 0 680.1 200.6"
+                    xml:space="preserve"
+                  >
+                    <style type="text/css">
+                      .st0 {
+                        fill: #0cecad;
+                      }
+                    </style>
                     <g>
-                      <path
-                        class="st0"
-                        d="M117.5,0.3c-0.3-0.2-0.7-0.3-1.1-0.3c-0.3,0-0.6,0-0.9,0.2c-1.3,0.5-2.8,0.9-4.1,1.4c-3.8,1.4-7.4,3.1-11,4.9
+                      <g>
+                        <path
+                          class="st0"
+                          d="M117.5,0.3c-0.3-0.2-0.7-0.3-1.1-0.3c-0.3,0-0.6,0-0.9,0.2c-1.3,0.5-2.8,0.9-4.1,1.4c-3.8,1.4-7.4,3.1-11,4.9
                       c-3.5,1.8-6.1,3.2-7,3.7c-9.8,5.4-13.5,7.3-16.6,9c-11.9,6.7-22.5,15.2-28,19.5c-12.2,9.7-18.3,14.6-25,22.5
                       c-6.2,7.3-21,24.7-23.4,48.7c-0.5,6.4-0.5,12.9,0.1,19.3c0.7,8.1,1.4,16,4.7,24.3c5.7,14.4,16.2,22.5,23.5,28.2
                       c8.5,6.7,18.4,11.7,28.9,14.5c4.3,1,8.6,1.7,13,2c22.5,2.7,51.9,4,88.9-0.8c10.5-1.3,18.1-2.7,30.3-5c47-8.9,74.7-14.1,118.1-24.1
@@ -172,16 +184,18 @@
                       c-18.2,3-17.3,2.3-32.6,5c-22.2,3.8-23.8,5.3-38.6,7c-9.3,1.1-8.8,0.5-26.4,2.1c-19.2,1.7-18.5,2.3-29.7,3.1
                       c-12.8,0.9-26.2,1.8-43.1-0.5c-9.7-1.4-16.4-2.3-24.8-6c-5.4-2.4-17.1-7.5-25.8-19.6c-9.5-13.2-10.3-27.4-11-38.6
                       c-0.3-6.4,0-12.9,0.8-19.3c1.2-10,3.3-19.8,6.3-29.5L117.5,0.3z"
-                      />
+                        />
+                      </g>
                     </g>
-                  </g>
-                </svg>
-                <canvas
-                  id="canvas-main"
-                  class="main-overlay-canvas main-body-display-img-overlay-transition"
-                ></canvas>
+                  </svg>
+                  <canvas
+                    id="canvas-main"
+                    class="main-overlay-canvas main-body-display-img-overlay-transition"
+                  ></canvas>
+                </div>
               </div>
             </div>
+
             <div
               id="main-body-display-left"
               class="main-body-display-move"
@@ -419,6 +433,6 @@
         </div>
       </div>
     </div>
-    <script src="js/script.js"></script>
+    <script defer src="js/script.js"></script>
   </body>
 </html>
