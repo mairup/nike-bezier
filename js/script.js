@@ -479,12 +479,12 @@ function pauseCdiTimer(b) {
   if (cdiTimeout == null && b == null) {
     timeoutHandler();
     document.getElementById("pause-timer-button").style =
-      'background-image: url("../img/pause-icon.svg")';
+      'background-image: url("img/pause-icon.svg")';
   } else {
     clearTimeout(cdiTimeout);
     cdiTimeout = null;
     document.getElementById("pause-timer-button").style =
-      'background-image: url("../img/play-icon.svg")';
+      'background-image: url("img/play-icon.svg")';
   }
 }
 

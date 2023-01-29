@@ -774,9 +774,11 @@ input[type="range"]::-moz-range-thumb {
 @keyframes flyInAnimationLeft {
   0% {
     transform: translateX(-150px);
+    opacity: 0;
   }
   100% {
     transform: translateX(0);
+    opacity: 1;
   }
 }
 
