@@ -683,6 +683,8 @@ input[type="range"]::-moz-range-thumb {
     scrollbar-width: none; /* Firefox */
     overflow-x: scroll;
     max-width: 100vw;
+    border-top: 8px solid #4e4e4e;
+    box-sizing: border-box;
   }
   .main-body-container-right-text,
   .main-body-container-left-text {
