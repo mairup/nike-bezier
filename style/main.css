@@ -376,6 +376,7 @@ input[type="range"]::-moz-range-thumb {
 }
 
 #pause-timer-button {
+  background-image: url("../img/play-icon.svg");
   background-image: url("../img/pause-icon.svg");
   background-size: contain;
   opacity: 1;
