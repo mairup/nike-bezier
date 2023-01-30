@@ -725,6 +725,10 @@ input[type="range"]::-moz-range-thumb {
   .main-body-container-control-box {
     height: 230px;
   }
+  #control-box-range-text {
+    font-size: 20px;
+    margin: -10px 0 0;
+  }
 }
 
 @media screen and (max-width: 450px) {
