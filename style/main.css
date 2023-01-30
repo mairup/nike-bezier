@@ -175,6 +175,10 @@ body {
   z-index: 100;
 }
 
+#main-body-display-img-container *:hover {
+  cursor: grab;
+}
+
 .main-body-display-img {
   width: 100%;
   height: 100%;

@@ -497,6 +497,7 @@ function removeClickedControlBoxItems() {
 }
 
 controlRange.oninput = function () {
+  pauseCdiTimer(true);
   var value = ((this.value - this.min) / (this.max - this.min)) * 100;
   this.style.background =
     "linear-gradient(to right, #5a5a5a 0%, #5a5a5a " +
@@ -504,9 +505,75 @@ controlRange.oninput = function () {
     "%, #fff " +
     value +
     "%, white 100%)";
-  displayImageContainer.style =
-    "transform: scale(" + controlRange.value / 100 + ")";
+
+  currentScale = controlRange.value / 100;
+  xOffset = 0;
+  yOffset = 0;
+
+  displayImageContainer.style = "transform: scale(" + currentScale + ")";
 };
+
+const displayImageCon = document.getElementById(
+  "main-body-display-img-container"
+);
+let isDragging = false;
+let currentX;
+let currentY;
+let initialX;
+let initialY;
+let xOffset = 0;
+let yOffset = 0;
+let currentScale = 1;
+
+displayImageCon.addEventListener("mousedown", dragStart);
+displayImageCon.addEventListener("mouseup", dragEnd);
+displayImageCon.addEventListener("mousemove", drag);
+
+function dragStart(e) {
+  initialX = e.clientX - xOffset;
+  initialY = e.clientY - yOffset;
+
+  isDragging = true;
+}
+
+function dragEnd(e) {
+  isDragging = false;
+}
+
+function drag(e) {
+  if (isDragging) {
+    e.preventDefault();
+    currentX = e.clientX - initialX;
+    currentY = e.clientY - initialY;
+
+    let maxX =
+      ((currentScale - 1) * displayImageCon.offsetWidth) / (currentScale * 2);
+    let maxY =
+      ((currentScale - 1) * displayImageCon.offsetHeight) / (currentScale * 2);
+
+    if (currentX > maxX) currentX = maxX;
+    if (currentX < -maxX) currentX = -maxX;
+    if (currentY > maxY) currentY = maxY;
+    if (currentY < -maxY) currentY = -maxY;
+
+    xOffset = currentX;
+    yOffset = currentY;
+
+    setTranslate(currentX, currentY, displayImageCon);
+  }
+}
+
+function setTranslate(xPos, yPos, el) {
+  el.style.transform =
+    "scale(" +
+    currentScale +
+    ") " +
+    "translate3d(" +
+    xPos +
+    "px, " +
+    yPos +
+    "px, 0)";
+}
 
 function drawShape(ctx, xoff, yoff) {
   ctx.beginPath();
