@@ -341,7 +341,8 @@ body {
   height: 30%;
   margin: -10px 0;
   font-size: 25px;
-  font-weight: 400;
+  font-weight: 500;
+  color: #4e4e4e;
 }
 
 .control-box-range {
