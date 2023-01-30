@@ -310,7 +310,6 @@ function changeShownContainerWindow(side) {
 function changeShownContainerWindowCustom(setTo) {
   if (sCon == setTo) return;
 
-  console.log(setTo);
   if (setTo == 0) bodyCons[setTo].style.zIndex = 100;
   else bodyCons[setTo].style.zIndex = -1;
 
@@ -516,11 +515,14 @@ controlRange.oninput = function () {
   yOffset = 0;
 
   displayImageContainer.style = "transform: scale(" + currentScale + ")";
+  document.getElementById("control-box-range-text").innerText =
+    "Zoom: " + currentScale + "x";
 };
 
 const displayImageCon = document.getElementById(
   "main-body-display-img-container"
 );
+
 let isDragging = false;
 let currentX;
 let currentY;

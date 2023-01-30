@@ -332,6 +332,18 @@ body {
   caret-color: rgba(0, 0, 0, 0);
 }
 
+#control-box-range-container {
+  flex-flow: column;
+  justify-content: space-evenly;
+}
+
+#control-box-range-text {
+  height: 30%;
+  margin: -10px 0;
+  font-size: 25px;
+  font-weight: 400;
+}
+
 .control-box-range {
   height: 60%;
   width: 80%;
