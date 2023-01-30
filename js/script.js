@@ -309,6 +309,11 @@ function changeShownContainerWindow(side) {
 
 function changeShownContainerWindowCustom(setTo) {
   if (sCon == setTo) return;
+
+  console.log(setTo);
+  if (setTo == 0) bodyCons[setTo].style.zIndex = 100;
+  else bodyCons[setTo].style.zIndex = -1;
+
   bodyCons[sCon].style.opacity = 0;
   bodyCons[setTo].style.opacity = 1;
   sCon = setTo;
