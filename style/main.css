@@ -28,10 +28,10 @@ body {
 }
 
 #site-icon {
-  background-image: url("../img/logo.svg");
+  background-image: url("../img/logo2.png");
   background-size: cover;
-  width: 75px;
-  height: 100%;
+  aspect-ratio: 3840 / 2160;
+  height: 90%;
   margin-left: 10px;
 }
 
