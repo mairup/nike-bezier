@@ -322,16 +322,28 @@ function changeShownContainerWindowCustom(setTo) {
   let animatedNodesRight =
     bodyCons[setTo].getElementsByClassName("animateRightToLeft");
 
+  for (const element of animatedNodesLeft) element.style.opacity = 0;
+
+  for (const element of animatedNodesRight) element.style.opacity = 0;
+
+  let delay = 0;
+
   for (i = 0; i < animatedNodesLeft.length; i++) {
     animatedNodesLeft[i].style.animation = "";
     void animatedNodesLeft[i].offsetWidth;
-    animatedNodesLeft[i].style.animation = "flyInAnimationLeft 0.5s ease";
+    animatedNodesLeft[i].style.animation =
+      "flyInAnimationLeft 0.5s " + delay + "ms ease forwards";
+    delay += 150;
   }
+
+  delay = 0;
 
   for (i = 0; i < animatedNodesRight.length; i++) {
     animatedNodesRight[i].style.animation = "";
     void animatedNodesRight[i].offsetWidth;
-    animatedNodesRight[i].style.animation = "flyInAnimationRight 0.5s ease";
+    animatedNodesRight[i].style.animation =
+      "flyInAnimationRight 0.5s " + delay + "ms ease forwards";
+    delay += 200;
   }
 
   selectButton();
