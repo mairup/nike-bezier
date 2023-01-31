@@ -61,6 +61,7 @@ body {
 }
 
 .header-button {
+  color: black;
   font-size: 17px;
   font-weight: 500;
   margin: 5px 10px;
@@ -85,7 +86,7 @@ body {
 
 .header-button-selected {
   background-color: whitesmoke;
-  border: 1px solid #afd600;
+  border: 1px solid black;
 }
 
 .header-botton-icon {
