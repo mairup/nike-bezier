@@ -71,7 +71,7 @@ body {
   align-items: center;
   background-color: rgb(200, 200, 200);
   padding: 0 10px;
-  border-radius: 50px;
+  border-radius: 15px;
   cursor: pointer;
   transition: background-color 0.3s ease-out, border-radius 0.3s ease;
   box-sizing: border-box;
@@ -143,7 +143,7 @@ body {
 .main-body-title-buy-button {
   height: 100%;
   width: 100%;
-  border-radius: 12px;
+  border-radius: 15px;
   display: grid;
   align-items: center;
   color: rgb(78, 78, 78);
@@ -324,7 +324,7 @@ body {
   height: 55%;
   background-color: #00d79b;
   aspect-ratio: 1/1;
-  border-radius: 25%;
+  border-radius: 15px;
   background-color: rgb(200, 200, 200);
   transition: opacity 0.3s ease, box-shadow 0.3s ease;
   opacity: 0.6;
