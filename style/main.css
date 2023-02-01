@@ -30,7 +30,7 @@ body {
 #site-icon {
   background-image: url("../img/logo2.png");
   background-size: cover;
-  aspect-ratio: 3840 / 2160;
+  aspect-ratio: 384 / 216;
   height: 90%;
   margin-left: 10px;
 }
@@ -61,7 +61,7 @@ body {
 }
 
 .header-button {
-  color: black;
+  color: #4e4e4e;
   font-size: 17px;
   font-weight: 500;
   margin: 5px 10px;
@@ -86,7 +86,7 @@ body {
 
 .header-button-selected {
   background-color: whitesmoke;
-  border: 1px solid black;
+  border: 2px solid #4e4e4e;
 }
 
 .header-botton-icon {

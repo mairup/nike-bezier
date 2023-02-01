@@ -310,8 +310,12 @@ function changeShownContainerWindow(side) {
 function changeShownContainerWindowCustom(setTo) {
   if (sCon == setTo) return;
 
-  if (setTo == 0) bodyCons[setTo].style.zIndex = 100;
-  else bodyCons[setTo].style.zIndex = -1;
+  console.log(setTo);
+
+  if (setTo === 0) bodyCons[setTo].style.zIndex = 100;
+  else {
+    bodyCons[0].style.zIndex = -1;
+  }
 
   bodyCons[sCon].style.opacity = 0;
   bodyCons[setTo].style.opacity = 1;
@@ -333,10 +337,10 @@ function changeShownContainerWindowCustom(setTo) {
     void animatedNodesLeft[i].offsetWidth;
     animatedNodesLeft[i].style.animation =
       "flyInAnimationLeft 0.5s " + delay + "ms ease forwards";
-    delay += 150;
+    delay += 200;
   }
 
-  delay = 0;
+  delay = 100;
 
   for (i = 0; i < animatedNodesRight.length; i++) {
     animatedNodesRight[i].style.animation = "";
