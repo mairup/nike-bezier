@@ -550,6 +550,7 @@ let currentScale = 1;
 
 displayImageCon.addEventListener("mousedown", dragStart);
 displayImageCon.addEventListener("mouseup", dragEnd);
+displayImageCon.addEventListener("mouseout", dragEnd);
 displayImageCon.addEventListener("mousemove", drag);
 
 function dragStart(e) {
@@ -597,6 +598,15 @@ function setTranslate(xPos, yPos, el) {
     yPos +
     "px, 0)";
 }
+document.getElementById("copyright-icon").addEventListener("click", () => {
+  Swal.fire({
+    title: "Credits:",
+    icon: "info",
+    html: '<div style="text-align:left;line-height:25px;">2023 Mai Rupnik<br>Website designed to showcase an item with SVG and Bezier curves</div>',
+    background: "#f6f6f6",
+    confirmButtonColor: "#3fc3ee",
+  });
+});
 
 function drawShape(ctx, xoff, yoff) {
   ctx.beginPath();
