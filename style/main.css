@@ -395,11 +395,58 @@ input[type="range"]::-moz-range-thumb {
   box-shadow: rgba(90, 90, 90, 0.616) 0 0 5px 2px;
 }
 
+#pause-timer-button-container {
+  position: relative;
+  opacity: 1;
+  transition: margin 0.3s ease;
+}
+
 #pause-timer-button {
-  background-image: url("../img/play-icon.svg");
+  border-radius: inherit;
   background-image: url("../img/pause-icon.svg");
   background-size: contain;
   opacity: 1;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-repeat: no-repeat;
+  background-color: inherit;
+}
+
+#pause-timer-button-container:hover {
+  box-shadow: none;
+}
+
+#pause-timer-button-timer {
+  border-radius: inherit;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background-color: inherit;
+  transition: width 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  justify-content: end;
+}
+
+#timer-input {
+  width: 35%;
+  margin-right: 7%;
+  outline: none;
+  caret-color: #4e4e4e;
+  font-size: 13px;
+  font-family: inherit;
+}
+
+.pause-timer-button-container-clicked {
+  box-shadow: none;
+  margin-right: 18%;
+}
+
+.pause-timer-button-element-clicked {
+  width: 200% !important;
+  box-shadow: rgba(90, 90, 90, 0.616) 0 0 5px 2px;
 }
 
 #set-default-button {
@@ -732,6 +779,9 @@ input[type="range"]::-moz-range-thumb {
   }
   .main-body-container-control-box {
     height: 230px;
+  }
+  .main-body-container-control-box-item {
+    border-radius: 10px;
   }
   #control-box-range-text {
     font-size: 20px;

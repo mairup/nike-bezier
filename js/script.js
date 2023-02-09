@@ -1,5 +1,5 @@
 let cdi = 0; // current display img
-const timeoutTime = 2300;
+let timeoutTime = 2300;
 const bodyCons = document.getElementsByClassName("body-window");
 let sCon = 2; // shown container (?)
 let mainDisplay = document.getElementById("main-body-display-img-main");
@@ -10,6 +10,7 @@ const controlRange = document.getElementById("control-box-range");
 const displayImageContainer = document.getElementById(
   "main-body-display-img-container"
 );
+const timerInput = document.getElementById("timer-input");
 
 let cdiTimeout = setTimeout(() => {
   moveDisplayContainer(1);
@@ -25,6 +26,7 @@ window.addEventListener("load", () => {
   addHeaderScrollShadow();
   setDefaultButton();
   controlRange.value = 100;
+  timerInput.value = timeoutTime;
 });
 
 window.addEventListener("resize", () => {
@@ -429,6 +431,7 @@ document
 
 document.getElementById("pause-timer-button").addEventListener("click", () => {
   pauseCdiTimer();
+  toggleTimerInput();
 });
 
 document.getElementById("set-default-button").addEventListener("click", () => {
@@ -606,6 +609,36 @@ document.getElementById("copyright-icon").addEventListener("click", () => {
     background: "#f6f6f6",
     confirmButtonColor: "#3fc3ee",
   });
+});
+
+function toggleTimerInput() {
+  if (cdiTimeout == null) {
+    document
+      .getElementById("pause-timer-button-container")
+      .classList.add("pause-timer-button-container-clicked");
+
+    document
+      .getElementById("pause-timer-button-timer")
+      .classList.add("pause-timer-button-element-clicked");
+  } else {
+    document
+      .getElementById("pause-timer-button-container")
+      .classList.remove("pause-timer-button-container-clicked");
+
+    document
+      .getElementById("pause-timer-button-timer")
+      .classList.remove("pause-timer-button-element-clicked");
+  }
+}
+
+timerInput.addEventListener("input", () => {
+  value = parseInt(timerInput.value);
+
+  if (typeof value == "number" && value > 300) {
+    timeoutTime = value;
+    timerInput.value = value;
+    timerInput.style.color = "inherit";
+  } else timerInput.style.color = "red";
 });
 
 function drawShape(ctx, xoff, yoff) {
