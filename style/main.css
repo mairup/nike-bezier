@@ -521,6 +521,13 @@ input[type="range"]::-moz-range-thumb {
   transform: scale(0.6);
 }
 
+#switch-bar {
+  position: absolute;
+  width: 0%;
+  height: 5px;
+  background-color: #00ffc8;
+}
+
 .main-body-display-selected-img-title {
   position: absolute;
   top: 20%;
@@ -685,6 +692,9 @@ input[type="range"]::-moz-range-thumb {
   .main-body-container-gallery img {
     height: 400px;
   }
+  #switch-bar {
+    height: 10px;
+  }
 }
 
 @media screen and (max-width: 1000px) {
@@ -786,6 +796,9 @@ input[type="range"]::-moz-range-thumb {
   #control-box-range-text {
     font-size: 20px;
     margin: -10px 0 0;
+  }
+  #switch-bar {
+    height: 3px;
   }
 }
 

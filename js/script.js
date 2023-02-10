@@ -11,6 +11,7 @@ const displayImageContainer = document.getElementById(
   "main-body-display-img-container"
 );
 const timerInput = document.getElementById("timer-input");
+const switchBar = document.getElementById("switch-bar");
 
 let cdiTimeout = setTimeout(() => {
   moveDisplayContainer(1);
@@ -27,6 +28,7 @@ window.addEventListener("load", () => {
   setDefaultButton();
   controlRange.value = 100;
   timerInput.value = timeoutTime;
+  animateSwitchBar();
 });
 
 window.addEventListener("resize", () => {
@@ -271,6 +273,7 @@ function displayImageSwap(side) {
 }
 
 function timeoutHandler() {
+  animateSwitchBar();
   if (cdiTimeout != null) clearTimeout(cdiTimeout);
   cdiTimeout = setTimeout(() => {
     let imgNum = cdi;
@@ -426,7 +429,9 @@ document
     if (cdiTimeout == null) {
       moveDisplayContainer(cdi + 1);
       pauseCdiTimer(true);
-    } else moveDisplayContainer(cdi + 1);
+    } else {
+      moveDisplayContainer(cdi + 1);
+    }
   });
 
 document.getElementById("pause-timer-button").addEventListener("click", () => {
@@ -503,11 +508,13 @@ function pauseCdiTimer(b) {
     timeoutHandler();
     document.getElementById("pause-timer-button").style =
       'background-image: url("img/pause-icon.svg")';
+    animateSwitchBar();
   } else {
     clearTimeout(cdiTimeout);
     cdiTimeout = null;
     document.getElementById("pause-timer-button").style =
       'background-image: url("img/play-icon.svg")';
+    animateSwitchBar("stop");
   }
 }
 
@@ -521,6 +528,7 @@ function removeClickedControlBoxItems() {
 
 controlRange.oninput = function () {
   pauseCdiTimer(true);
+  toggleTimerInput();
   var value = ((this.value - this.min) / (this.max - this.min)) * 100;
   this.style.background =
     "linear-gradient(to right, #5a5a5a 0%, #5a5a5a " +
@@ -640,6 +648,36 @@ timerInput.addEventListener("input", () => {
     timerInput.style.color = "inherit";
   } else timerInput.style.color = "red";
 });
+
+function animateSwitchBar(s) {
+  switch (cdi) {
+    case 0:
+      switchBar.style.backgroundColor = "#333235";
+      break;
+    case 1:
+      switchBar.style.backgroundColor = "#e4e81e";
+      break;
+    case 2:
+      switchBar.style.backgroundColor = "#00fab3";
+      break;
+    case 3:
+      switchBar.style.backgroundColor = "#fcaa26";
+      break;
+
+    default:
+      break;
+  }
+
+  switchBar.style.width = "0px";
+  switchBar.style.transition = "";
+  void switchBar.offsetHeight;
+  switchBar.style.transition = "width " + timeoutTime + "ms linear";
+  void switchBar.offsetHeight;
+  console.log(s);
+  if (s == undefined) {
+    switchBar.style.width = "100%";
+  }
+}
 
 function drawShape(ctx, xoff, yoff) {
   ctx.beginPath();
