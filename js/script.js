@@ -17,6 +17,8 @@ let cdiTimeout = setTimeout(() => {
   moveDisplayContainer(1);
 }, timeoutTime);
 
+animateSwitchBar();
+
 let displayImageSwapTimeout;
 
 window.addEventListener("load", () => {
@@ -28,7 +30,6 @@ window.addEventListener("load", () => {
   setDefaultButton();
   controlRange.value = 100;
   timerInput.value = timeoutTime;
-  animateSwitchBar();
 });
 
 window.addEventListener("resize", () => {

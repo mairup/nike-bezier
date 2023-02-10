@@ -437,6 +437,7 @@ input[type="range"]::-moz-range-thumb {
   caret-color: #4e4e4e;
   font-size: 13px;
   font-family: inherit;
+  text-align: center;
 }
 
 .pause-timer-button-container-clicked {
