@@ -2,4 +2,4 @@
  Simple shop website designed with svg and bezier curves
  
  live preview: 
-<a href="https://nike-bezier.mairup.pro/">nike-bezier.mairup.pro</a>
+<a href="https://nike-bezier.mairup.space/">nike-bezier.mairup.space</a>
